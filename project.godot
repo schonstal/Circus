@@ -18,4 +18,4 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-EventBus="*res://autoload/event_bus.gd"
+EventBus="*res://game/autoload/event_bus.gd"

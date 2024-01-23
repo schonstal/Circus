@@ -1,16 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://dy3wyn6ncf1cw"]
+[gd_scene load_steps=6 format=3 uid="uid://dy3wyn6ncf1cw"]
 
 [ext_resource type="PackedScene" uid="uid://cywiykw7n1cyf" path="res://game/background/background.tscn" id="1_aeadd"]
 [ext_resource type="Shader" path="res://game/arena/ring.gdshader" id="2_tn58u"]
+[ext_resource type="PackedScene" uid="uid://lx031gf4oghp" path="res://game/hazard/projectile/projectile.tscn" id="3_07g83"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kpp60"]
 shader = ExtResource("2_tn58u")
 shader_parameter/border_color = Color(0.815686, 0.796078, 0.541176, 1)
-shader_parameter/inner_color = Color(0, 0, 0, 0.709804)
-shader_parameter/shadow_color = Color(0, 0, 0, 0.415686)
-shader_parameter/outline_color = Color(0.0117647, 0.0117647, 0.00392157, 1)
+shader_parameter/inner_color = Color(0, 0, 0, 0.607843)
+shader_parameter/outline_color = Color(0.0392157, 0.0588235, 0.133333, 1)
+shader_parameter/outline_thickness = 0.005
 shader_parameter/radius = 0.87
-shader_parameter/thickness = 0.035
+shader_parameter/thickness = 0.025
 shader_parameter/antialias = 0.003
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_oyprf"]
@@ -23,14 +24,38 @@ shader_parameter/antialias = 0.003
 
 [node name="Arena" type="CanvasLayer" parent="."]
 
-[node name="Node2D" type="Node2D" parent="Arena"]
+[node name="Circle" type="Node2D" parent="Arena"]
 
-[node name="TextureRect" type="TextureRect" parent="Arena/Node2D"]
+[node name="TextureRect" type="TextureRect" parent="Arena/Circle"]
 material = SubResource("ShaderMaterial_kpp60")
 offset_left = 418.0
 offset_top = 4.0
 offset_right = 1498.0
 offset_bottom = 1084.0
 texture = SubResource("PlaceholderTexture2D_oyprf")
+
+[node name="Projectile" parent="Arena/Circle" instance=ExtResource("3_07g83")]
+position = Vector2(957, 535)
+
+[node name="Projectile2" parent="Arena/Circle" instance=ExtResource("3_07g83")]
+position = Vector2(957, 535)
+index = 1
+
+[node name="Projectile3" parent="Arena/Circle" instance=ExtResource("3_07g83")]
+position = Vector2(957, 535)
+index = 2
+
+[node name="Projectile4" parent="Arena/Circle" instance=ExtResource("3_07g83")]
+position = Vector2(957, 535)
+index = 3
+
+[node name="Projectile5" parent="Arena/Circle" instance=ExtResource("3_07g83")]
+position = Vector2(957, 535)
+index = 4
+
+[node name="Projectile6" parent="Arena/Circle" instance=ExtResource("3_07g83")]
+visible = false
+position = Vector2(957, 535)
+index = 6
 
 [node name="HUD" type="CanvasLayer" parent="."]

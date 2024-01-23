@@ -6,7 +6,7 @@
 shader = ExtResource("1_0imfi")
 shader_parameter/color_a = Color(0.0784314, 0.0784314, 0.196078, 1)
 shader_parameter/color_b = Color(0.0392157, 0.0588235, 0.133333, 1)
-shader_parameter/frequency = 25.0
+shader_parameter/frequency = 20.0
 shader_parameter/speed = 0.6
 shader_parameter/segments = 5.0
 

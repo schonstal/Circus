@@ -1,6 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://dy3wyn6ncf1cw"]
+[gd_scene load_steps=5 format=3 uid="uid://dy3wyn6ncf1cw"]
 
 [ext_resource type="PackedScene" uid="uid://cywiykw7n1cyf" path="res://game/background/background.tscn" id="1_aeadd"]
+[ext_resource type="Shader" path="res://game/arena/ring.gdshader" id="2_tn58u"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kpp60"]
+shader = ExtResource("2_tn58u")
+shader_parameter/border_color = Color(0.815686, 0.796078, 0.541176, 1)
+shader_parameter/inner_color = Color(0, 0, 0, 0.709804)
+shader_parameter/shadow_color = Color(0, 0, 0, 0.415686)
+shader_parameter/outline_color = Color(0.0117647, 0.0117647, 0.00392157, 1)
+shader_parameter/radius = 0.87
+shader_parameter/thickness = 0.035
+shader_parameter/antialias = 0.003
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_oyprf"]
 
 [node name="Main" type="Node2D"]
 
@@ -8,6 +21,16 @@
 
 [node name="Background" parent="Background" instance=ExtResource("1_aeadd")]
 
-[node name="Playfield" type="CanvasLayer" parent="."]
+[node name="Arena" type="CanvasLayer" parent="."]
+
+[node name="Node2D" type="Node2D" parent="Arena"]
+
+[node name="TextureRect" type="TextureRect" parent="Arena/Node2D"]
+material = SubResource("ShaderMaterial_kpp60")
+offset_left = 418.0
+offset_top = 4.0
+offset_right = 1498.0
+offset_bottom = 1084.0
+texture = SubResource("PlaceholderTexture2D_oyprf")
 
 [node name="HUD" type="CanvasLayer" parent="."]

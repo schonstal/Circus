@@ -19,3 +19,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 EventBus="*res://game/autoload/event_bus.gd"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080

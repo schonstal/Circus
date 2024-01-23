@@ -1,3 +1,13 @@
-[gd_scene format=3 uid="uid://dy3wyn6ncf1cw"]
+[gd_scene load_steps=2 format=3 uid="uid://dy3wyn6ncf1cw"]
+
+[ext_resource type="PackedScene" uid="uid://cywiykw7n1cyf" path="res://game/background/background.tscn" id="1_aeadd"]
 
 [node name="Main" type="Node2D"]
+
+[node name="Background" type="CanvasLayer" parent="."]
+
+[node name="Background" parent="Background" instance=ExtResource("1_aeadd")]
+
+[node name="Playfield" type="CanvasLayer" parent="."]
+
+[node name="HUD" type="CanvasLayer" parent="."]

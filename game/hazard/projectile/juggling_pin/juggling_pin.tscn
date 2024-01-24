@@ -1,0 +1,28 @@
+[gd_scene load_steps=8 format=3 uid="uid://drla6rvs1wwjr"]
+
+[ext_resource type="Script" path="res://game/hazard/projectile/juggling_pin/juggling_pin.gd" id="1_wg5qs"]
+[ext_resource type="Texture2D" uid="uid://dre3jtydb2yd7" path="res://game/hazard/projectile/juggling_pin/BulletJugglingPinOutline.png" id="2_p6kwb"]
+[ext_resource type="Shader" path="res://game/hazard/projectile/juggling_pin/juggling_pin.gdshader" id="3_kwe6c"]
+[ext_resource type="Texture2D" uid="uid://cflwevdax32ln" path="res://game/hazard/projectile/juggling_pin/BulletJugglingPin.png" id="4_48h2u"]
+
+[sub_resource type="Gradient" id="Gradient_0frha"]
+interpolation_color_space = 2
+offsets = PackedFloat32Array(0, 0.512438, 1)
+colors = PackedColorArray(0.159451, 0.40287, 0.748399, 1, 0.846088, 0.615684, 0.33191, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_3of0k"]
+gradient = SubResource("Gradient_0frha")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3p1l3"]
+shader = ExtResource("3_kwe6c")
+shader_parameter/gradient_map = SubResource("GradientTexture1D_3of0k")
+
+[node name="JugglingPin" type="Node2D"]
+script = ExtResource("1_wg5qs")
+
+[node name="Outline" type="Sprite2D" parent="."]
+texture = ExtResource("2_p6kwb")
+
+[node name="Graphic" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_3p1l3")
+texture = ExtResource("4_48h2u")

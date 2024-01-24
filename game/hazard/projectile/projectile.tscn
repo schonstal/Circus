@@ -1,21 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://lx031gf4oghp"]
+[gd_scene load_steps=2 format=3 uid="uid://lx031gf4oghp"]
 
 [ext_resource type="Script" path="res://game/hazard/projectile/projectile.gd" id="1_p6pd0"]
-[ext_resource type="Shader" path="res://game/hazard/projectile/projectile.gdshader" id="2_bbvmt"]
-[ext_resource type="Texture2D" uid="uid://ct7bupgwu8bcy" path="res://game/particles/kenney/particleWhite_3.png" id="2_sa65a"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ftm1f"]
-shader = ExtResource("2_bbvmt")
-shader_parameter/color = Color(0.92549, 0.137255, 0.494118, 1)
-shader_parameter/width = 10.0
-shader_parameter/pattern = 1
-shader_parameter/inside = false
-shader_parameter/add_margins = true
 
 [node name="Projectile" type="Node2D"]
 script = ExtResource("1_p6pd0")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_ftm1f")
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("2_sa65a")

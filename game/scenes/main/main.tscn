@@ -10,7 +10,7 @@ shader_parameter/border_color = Color(0.815686, 0.796078, 0.541176, 1)
 shader_parameter/inner_color = Color(0, 0, 0, 0.607843)
 shader_parameter/outline_color = Color(0.0392157, 0.0588235, 0.133333, 1)
 shader_parameter/outline_thickness = 0.005
-shader_parameter/radius = 0.87
+shader_parameter/radius = 0.63
 shader_parameter/thickness = 0.025
 shader_parameter/antialias = 0.003
 
@@ -28,10 +28,9 @@ shader_parameter/antialias = 0.003
 
 [node name="TextureRect" type="TextureRect" parent="Arena/Circle"]
 material = SubResource("ShaderMaterial_kpp60")
-offset_left = 418.0
-offset_top = 4.0
-offset_right = 1498.0
-offset_bottom = 1084.0
+offset_left = 420.0
+offset_right = 1500.0
+offset_bottom = 1080.0
 texture = SubResource("PlaceholderTexture2D_oyprf")
 
 [node name="Projectile" parent="Arena/Circle" instance=ExtResource("3_07g83")]

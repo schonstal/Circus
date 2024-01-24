@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dtjek1c8q01tl"]
+
+[ext_resource type="Script" path="res://game/conductor/conductor.gd" id="1_leudk"]
+[ext_resource type="AudioStream" uid="uid://bkn6wd6lsrjr3" path="res://game/music/Circus_Hyperpop_1.23_8.34.mp3" id="2_t7qx7"]
+
+[node name="Conductor" type="Node"]
+script = ExtResource("1_leudk")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_t7qx7")

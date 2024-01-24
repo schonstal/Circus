@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dy3wyn6ncf1cw"]
+[gd_scene load_steps=9 format=3 uid="uid://dy3wyn6ncf1cw"]
 
 [ext_resource type="PackedScene" uid="uid://cywiykw7n1cyf" path="res://game/background/background.tscn" id="1_aeadd"]
+[ext_resource type="PackedScene" uid="uid://dtjek1c8q01tl" path="res://game/conductor/conductor.tscn" id="1_vpcev"]
 [ext_resource type="Shader" path="res://game/arena/ring.gdshader" id="2_tn58u"]
 [ext_resource type="PackedScene" uid="uid://lx031gf4oghp" path="res://game/hazard/projectile/projectile.tscn" id="3_07g83"]
+[ext_resource type="Script" path="res://game/arena/circle.gd" id="3_p5onr"]
 [ext_resource type="PackedScene" uid="uid://dbyk28qnxnodo" path="res://game/player/player.tscn" id="4_b5g7f"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kpp60"]
@@ -19,6 +21,8 @@ shader_parameter/antialias = 0.003
 
 [node name="Main" type="Node2D"]
 
+[node name="Conductor" parent="." instance=ExtResource("1_vpcev")]
+
 [node name="Background" type="CanvasLayer" parent="."]
 
 [node name="Background" parent="Background" instance=ExtResource("1_aeadd")]
@@ -26,6 +30,7 @@ shader_parameter/antialias = 0.003
 [node name="Arena" type="CanvasLayer" parent="."]
 
 [node name="Circle" type="Node2D" parent="Arena"]
+script = ExtResource("3_p5onr")
 
 [node name="TextureRect" type="TextureRect" parent="Arena/Circle"]
 material = SubResource("ShaderMaterial_kpp60")

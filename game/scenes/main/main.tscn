@@ -10,11 +10,11 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kpp60"]
 shader = ExtResource("2_tn58u")
 shader_parameter/border_color = Color(0.815686, 0.796078, 0.541176, 1)
-shader_parameter/inner_color = Color(0, 0, 0, 0.607843)
-shader_parameter/outline_color = Color(0.0392157, 0.0588235, 0.133333, 1)
-shader_parameter/outline_thickness = 0.005
+shader_parameter/inner_color = Color(0, 0, 0, 0.662745)
+shader_parameter/outline_color = Color(0, 0, 0, 1)
+shader_parameter/outline_thickness = 0.011
 shader_parameter/radius = 0.81
-shader_parameter/thickness = 0.025
+shader_parameter/thickness = 0.035
 shader_parameter/antialias = 0.003
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_oyprf"]

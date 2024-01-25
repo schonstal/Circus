@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dy3wyn6ncf1cw"]
+[gd_scene load_steps=11 format=3 uid="uid://dy3wyn6ncf1cw"]
 
 [ext_resource type="PackedScene" uid="uid://cywiykw7n1cyf" path="res://game/background/background.tscn" id="1_aeadd"]
 [ext_resource type="PackedScene" uid="uid://dtjek1c8q01tl" path="res://game/conductor/conductor.tscn" id="1_vpcev"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://lx031gf4oghp" path="res://game/hazard/projectile/projectile.tscn" id="3_07g83"]
 [ext_resource type="Script" path="res://game/arena/circle.gd" id="3_p5onr"]
 [ext_resource type="PackedScene" uid="uid://dbyk28qnxnodo" path="res://game/player/player.tscn" id="4_b5g7f"]
+[ext_resource type="PackedScene" uid="uid://csx0qmm2d4avv" path="res://game/hazard/ring_leader/ring_leader_hand.tscn" id="7_kd82m"]
+[ext_resource type="PackedScene" uid="uid://2lxlvaam2a67" path="res://game/hazard/ring_leader/ring_leader_head.tscn" id="8_fxrrh"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kpp60"]
 shader = ExtResource("2_tn58u")
@@ -65,5 +67,19 @@ index = 6
 
 [node name="Player" parent="Arena" instance=ExtResource("4_b5g7f")]
 position = Vector2(847, 581)
+
+[node name="RightHand" parent="Arena" instance=ExtResource("7_kd82m")]
+position = Vector2(1627, 537)
+flip = true
+speed = 1.295
+radius = 10.0
+
+[node name="LeftHand" parent="Arena" instance=ExtResource("7_kd82m")]
+position = Vector2(301, 535)
+speed = 1.2
+radius = null
+
+[node name="Head" parent="Arena" instance=ExtResource("8_fxrrh")]
+position = Vector2(957, 159)
 
 [node name="HUD" type="CanvasLayer" parent="."]

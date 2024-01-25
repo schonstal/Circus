@@ -1,18 +1,69 @@
-[gd_scene load_steps=4 format=3 uid="uid://dbyk28qnxnodo"]
+[gd_scene load_steps=13 format=3 uid="uid://dbyk28qnxnodo"]
 
-[ext_resource type="Texture2D" uid="uid://bm7gmttaj4o0o" path="res://icon.svg" id="1_68r0g"]
 [ext_resource type="Script" path="res://game/player/player.gd" id="1_b120n"]
+[ext_resource type="Texture2D" uid="uid://drh18mmid77ly" path="res://game/player/skin/RabbitDamaged.png" id="2_tkbhe"]
+[ext_resource type="Texture2D" uid="uid://c3wls0veb1d87" path="res://game/player/skin/RabbitMove0001.png" id="3_gojal"]
+[ext_resource type="Texture2D" uid="uid://b34gr43m7bf2u" path="res://game/player/skin/RabbitMove0002.png" id="4_a7k60"]
+[ext_resource type="Texture2D" uid="uid://bovxgve75x5xg" path="res://game/player/skin/RabbitMove0003.png" id="5_0g1s3"]
+[ext_resource type="Texture2D" uid="uid://dyyn42drwbjgp" path="res://game/player/skin/RabbitMove0004.png" id="6_6u2lw"]
+[ext_resource type="Texture2D" uid="uid://cueqwupxmx2mu" path="res://game/player/skin/RabbitMove0005.png" id="7_3dwef"]
+[ext_resource type="Texture2D" uid="uid://coi8mrnapktcl" path="res://game/player/skin/RabbitMove0006.png" id="8_ojtmq"]
+[ext_resource type="Texture2D" uid="uid://c57vyefrnop7f" path="res://game/player/skin/RabbitMove0007.png" id="9_h1bgo"]
+[ext_resource type="Texture2D" uid="uid://wsmrobsrtp3y" path="res://game/player/skin/RabbitMove0008.png" id="10_b6rwg"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_428ut"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_tkbhe")
+}],
+"loop": true,
+"name": &"damaged",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_gojal")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_a7k60")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_0g1s3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_6u2lw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_3dwef")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ojtmq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_h1bgo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_b6rwg")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ybpuk"]
-radius = 58.1378
+radius = 25.02
 
 [node name="Player" type="CharacterBody2D"]
 motion_mode = 1
 script = ExtResource("1_b120n")
 speed = 540
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_68r0g")
+[node name="Graphics" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_428ut")
+animation = &"run"
+autoplay = "run"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 12)
 shape = SubResource("CircleShape2D_ybpuk")

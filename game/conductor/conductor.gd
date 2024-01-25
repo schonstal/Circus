@@ -26,7 +26,6 @@ func _process(_delta: float) -> void:
   
   var bps:float = bpm / 60.0
   var current_beat:int = floor(bps * time)
-  print(current_beat)
   
   if current_beat > beat:
     beat = current_beat

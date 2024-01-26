@@ -9,13 +9,17 @@ var beat := 0
 var time_begin := 0.0
 var time_delay := 0.0
 
-func _ready() -> void:
-  await get_tree().create_timer(3.).timeout
+signal quarter(beat)
+signal thirty_second
+signal sixteenth
+signal eighth
+signal twelfth
+signal twenty_forth
+
+func play_music() -> void:
   time_begin = Time.get_ticks_usec()
   time_delay = AudioServer.get_time_to_next_mix() + AudioServer.get_output_latency()
   audio_stream_player.play()
-  await get_tree().create_timer(time_delay)
-  animation_player.play("chart")
 
 func _process(_delta: float) -> void:
   if !audio_stream_player.playing:
@@ -32,4 +36,4 @@ func _process(_delta: float) -> void:
   
   if current_beat > beat:
     beat = current_beat
-    EventBus.measure_changed.emit(beat % 4 + 1)
+    quarter.emit(beat)

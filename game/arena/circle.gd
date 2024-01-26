@@ -5,9 +5,6 @@ extends Node2D
 var radius: float = 1 :
   set(value):
     (texture_rect.material as ShaderMaterial).set_shader_parameter("radius", value)
-
-func _ready() -> void:
-  EventBus.measure_changed.connect(_pump)
   
 func _pump(m:int):
   var t = create_tween()

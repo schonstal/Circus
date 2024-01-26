@@ -1,8 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://dy3wyn6ncf1cw"]
+[gd_scene load_steps=12 format=3 uid="uid://dy3wyn6ncf1cw"]
 
 [ext_resource type="PackedScene" uid="uid://cywiykw7n1cyf" path="res://game/background/background.tscn" id="1_aeadd"]
 [ext_resource type="Script" path="res://game/game.gd" id="1_scfe5"]
-[ext_resource type="PackedScene" uid="uid://dtjek1c8q01tl" path="res://game/conductor/conductor.tscn" id="1_vpcev"]
 [ext_resource type="Shader" path="res://game/arena/ring.gdshader" id="2_tn58u"]
 [ext_resource type="PackedScene" uid="uid://lx031gf4oghp" path="res://game/hazard/projectile/projectile.tscn" id="3_07g83"]
 [ext_resource type="Script" path="res://game/arena/circle.gd" id="3_p5onr"]
@@ -25,8 +24,6 @@ shader_parameter/antialias = 0.003
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_scfe5")
-
-[node name="Conductor" parent="." instance=ExtResource("1_vpcev")]
 
 [node name="Background" type="CanvasLayer" parent="."]
 
@@ -97,5 +94,3 @@ suit = 3
 unique_name_in_owner = true
 
 [node name="HUD" type="CanvasLayer" parent="."]
-
-[editable path="Conductor"]

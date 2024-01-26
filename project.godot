@@ -22,6 +22,7 @@ EventBus="*res://game/autoload/event_bus.gd"
 InputService="*res://game/autoload/input_service.gd"
 ExplosionService="*res://game/autoload/explosion_service.gd"
 GameService="*res://game/autoload/game_service.gd"
+Conductor="*res://game/autoload/conductor/conductor.tscn"
 
 [display]
 

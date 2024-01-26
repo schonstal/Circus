@@ -1,5 +1,5 @@
 class_name Projectile
-extends Node2D
+extends Area2D
 
 @export var index:int = 0
 

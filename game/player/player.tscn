@@ -55,6 +55,7 @@ animations = [{
 radius = 25.02
 
 [node name="Player" type="CharacterBody2D"]
+collision_mask = 6
 motion_mode = 1
 script = ExtResource("1_b120n")
 speed = 540

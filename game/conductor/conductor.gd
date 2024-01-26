@@ -3,6 +3,7 @@ extends Node
 @export var bpm := 146.0
 
 @onready var audio_stream_player := $AudioStreamPlayer
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 var beat := 0
 var time_begin := 0.0
@@ -13,6 +14,8 @@ func _ready() -> void:
   time_begin = Time.get_ticks_usec()
   time_delay = AudioServer.get_time_to_next_mix() + AudioServer.get_output_latency()
   audio_stream_player.play()
+  await get_tree().create_timer(time_delay)
+  animation_player.play("chart")
 
 func _process(_delta: float) -> void:
   if !audio_stream_player.playing:

@@ -69,17 +69,20 @@ index = 6
 position = Vector2(847, 581)
 
 [node name="RightHand" parent="Arena" instance=ExtResource("7_kd82m")]
+visible = false
 position = Vector2(1627, 537)
 flip = true
-speed = 1.295
+speed = 1.2
 radius = 10.0
 
 [node name="LeftHand" parent="Arena" instance=ExtResource("7_kd82m")]
 position = Vector2(301, 535)
 speed = 1.2
-radius = null
+radius = 10.0
 
 [node name="Head" parent="Arena" instance=ExtResource("8_fxrrh")]
 position = Vector2(957, 159)
 
 [node name="HUD" type="CanvasLayer" parent="."]
+
+[editable path="Conductor"]

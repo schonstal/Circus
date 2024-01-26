@@ -13,3 +13,4 @@ enum Suit {
 
 func _ready() -> void:
   card.frame = suit
+  super._ready()

@@ -1,0 +1,63 @@
+[gd_scene load_steps=13 format=3 uid="uid://ctsyfbkpv74oe"]
+
+[ext_resource type="Texture2D" uid="uid://deaekgr03ro0c" path="res://game/hazard/projectile/explosion/BulletExplosion0001.png" id="1_5w68y"]
+[ext_resource type="Script" path="res://game/hazard/projectile/explosion/explosion.gd" id="1_fo06u"]
+[ext_resource type="Texture2D" uid="uid://jn7dgyxdwb5n" path="res://game/hazard/projectile/explosion/BulletExplosion0002.png" id="2_fw2mu"]
+[ext_resource type="Texture2D" uid="uid://deqgwp61yvrc" path="res://game/hazard/projectile/explosion/BulletExplosion0003.png" id="3_7w6jo"]
+[ext_resource type="Texture2D" uid="uid://dbepy2xv4j260" path="res://game/hazard/projectile/explosion/BulletExplosion0004.png" id="4_jr6dg"]
+[ext_resource type="Texture2D" uid="uid://b4facwg2yp54r" path="res://game/hazard/projectile/explosion/BulletExplosion0005.png" id="5_0fllh"]
+[ext_resource type="Texture2D" uid="uid://chilpydnhrx35" path="res://game/hazard/projectile/explosion/BulletExplosion0006.png" id="6_o21hx"]
+[ext_resource type="Texture2D" uid="uid://d037n4c48e0sk" path="res://game/hazard/projectile/explosion/BulletExplosion0007.png" id="7_ll7jx"]
+[ext_resource type="Texture2D" uid="uid://cr5le10cly6vx" path="res://game/hazard/projectile/explosion/BulletExplosion0008.png" id="8_ijney"]
+[ext_resource type="Texture2D" uid="uid://c4bfokemdy3v7" path="res://game/hazard/projectile/explosion/BulletExplosion0009.png" id="9_hpgfi"]
+[ext_resource type="Texture2D" uid="uid://brjos2boc0v22" path="res://game/hazard/projectile/explosion/BulletExplosion0010.png" id="10_rmlnn"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n4jou"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_5w68y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_fw2mu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_7w6jo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_jr6dg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_0fllh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_o21hx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ll7jx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ijney")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_hpgfi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_rmlnn")
+}],
+"loop": false,
+"name": &"default",
+"speed": 20.0
+}]
+
+[node name="Explosion" type="Node2D"]
+script = ExtResource("1_fo06u")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(0.937255, 0.282353, 0.470588, 1)
+sprite_frames = SubResource("SpriteFrames_n4jou")
+autoplay = "default"
+frame = 9
+frame_progress = 1.0
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

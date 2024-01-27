@@ -40,8 +40,8 @@ func play_music() -> void:
   time_delay = AudioServer.get_time_to_next_mix() + AudioServer.get_output_latency()
   audio_stream_player.play()
   
-func subdivision_duration(subdivision:float) -> float:
-  return 60.0 / (bpm * (subdivision / 4.0))
+func subdivision_duration(subdivision:int) -> float:
+  return 60.0 / (bpm * (subdivision / 4))
 
 func _process(_delta: float) -> void:
   if !audio_stream_player.playing:
@@ -54,8 +54,8 @@ func _process(_delta: float) -> void:
     return
   
   for subdivision in quantizations.keys():
-    var bps:float = (subdivision/4) * bpm / 60.0
-    var current_beat = floor(bps * time)
-    if current_beat > beats[subdivision]:
-      beats[subdivision] = current_beat
+    var nps:float = (subdivision / 4) * bpm / 60.0
+    var current_note = floor(nps * time)
+    if current_note > beats[subdivision]:
+      beats[subdivision] = current_note
       quantizations[subdivision].emit(int(beats[subdivision]) % subdivision)

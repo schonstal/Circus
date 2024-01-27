@@ -4,7 +4,7 @@ extends Node
 
 @onready var audio_stream_player := $AudioStreamPlayer
 
-var note_types := {
+var quantizations := {
   4: quarter,
   8: eighth,
   12: twelfth,
@@ -39,6 +39,9 @@ func play_music() -> void:
   time_begin = Time.get_ticks_usec()
   time_delay = AudioServer.get_time_to_next_mix() + AudioServer.get_output_latency()
   audio_stream_player.play()
+  
+func subdivision_duration(subdivision:float) -> float:
+  return 60.0 / (bpm * (subdivision / 4.0))
 
 func _process(_delta: float) -> void:
   if !audio_stream_player.playing:
@@ -50,9 +53,9 @@ func _process(_delta: float) -> void:
     time = 0
     return
   
-  for type in note_types.keys():
-    var bps:float = (type/4) * bpm / 60.0
+  for subdivision in quantizations.keys():
+    var bps:float = (subdivision/4) * bpm / 60.0
     var current_beat = floor(bps * time)
-    if current_beat > beats[type]:
-      beats[type] = current_beat
-      note_types[type].emit(int(beats[type]) % type)
+    if current_beat > beats[subdivision]:
+      beats[subdivision] = current_beat
+      quantizations[subdivision].emit(int(beats[subdivision]) % subdivision)

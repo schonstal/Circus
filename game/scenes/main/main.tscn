@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dy3wyn6ncf1cw"]
+[gd_scene load_steps=18 format=3 uid="uid://dy3wyn6ncf1cw"]
 
 [ext_resource type="PackedScene" uid="uid://cywiykw7n1cyf" path="res://game/background/background.tscn" id="1_aeadd"]
 [ext_resource type="Script" path="res://game/game.gd" id="1_scfe5"]
@@ -8,14 +8,13 @@
 [ext_resource type="PackedScene" uid="uid://dbyk28qnxnodo" path="res://game/player/player.tscn" id="4_b5g7f"]
 [ext_resource type="PackedScene" uid="uid://csx0qmm2d4avv" path="res://game/hazard/ring_leader/ring_leader_hand.tscn" id="7_kd82m"]
 [ext_resource type="PackedScene" uid="uid://2lxlvaam2a67" path="res://game/hazard/ring_leader/ring_leader_head.tscn" id="8_fxrrh"]
-[ext_resource type="Shader" path="res://game/ui/hud/health/health.gdshader" id="10_73718"]
-[ext_resource type="Texture2D" uid="uid://cy53fkw12j61i" path="res://game/ui/hud/health/HealthBarFrame.png" id="10_adgxk"]
 [ext_resource type="PackedScene" uid="uid://cftthli3rj0pr" path="res://game/hazard/projectile/card/card.tscn" id="10_f3w1p"]
-[ext_resource type="Texture2D" uid="uid://dtew7joycubnp" path="res://game/ui/hud/health/HealthBarBackdropNew.png" id="11_kwsfr"]
-[ext_resource type="Texture2D" uid="uid://c5ekt8ak52a1o" path="res://game/ui/hud/health/HealthBarFill.png" id="11_vmkcv"]
-[ext_resource type="Texture2D" uid="uid://c5rxjejdlw80b" path="res://game/ui/hud/timeline/TimelineBar.png" id="14_f6keq"]
+[ext_resource type="Texture2D" uid="uid://dqnj8wfg2fwpp" path="res://game/ui/hud/health/ColoredHealthBack.png" id="10_nrtod"]
+[ext_resource type="Texture2D" uid="uid://bitnx511w4o4p" path="res://game/ui/hud/health/ColoredHealthFrame.png" id="11_rbumu"]
+[ext_resource type="Texture2D" uid="uid://dxn6jwambo3kp" path="res://game/ui/hud/health/ColoredHealthBar.png" id="12_gtbxy"]
+[ext_resource type="Texture2D" uid="uid://v6rafbrthvrx" path="res://game/ui/hud/timeline/ColoredTimeline.png" id="13_irn0d"]
+[ext_resource type="Texture2D" uid="uid://er6pft26u3f6" path="res://game/ui/hud/timeline/ColoredTimelineMarker.png" id="14_42uej"]
 [ext_resource type="Texture2D" uid="uid://c8ycfs5rasut0" path="res://game/palette.png" id="14_hv8nm"]
-[ext_resource type="Texture2D" uid="uid://y1elaft6l8l1" path="res://game/ui/hud/timeline/TimelineRabbitHead.png" id="15_eedn6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kpp60"]
 shader = ExtResource("2_tn58u")
@@ -28,32 +27,6 @@ shader_parameter/thickness = 0.035
 shader_parameter/antialias = 0.003
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_oyprf"]
-
-[sub_resource type="Gradient" id="Gradient_0fbbj"]
-interpolation_color_space = 2
-offsets = PackedFloat32Array(0, 0.333333, 0.666667, 1)
-colors = PackedColorArray(0.0431373, 0, 0.207843, 1, 0.0431373, 0, 0.207843, 1, 0.992157, 0.345098, 0.321569, 1, 0.984314, 0.933333, 0.286275, 1)
-metadata/_snap_count = 3
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_i55vg"]
-gradient = SubResource("Gradient_0fbbj")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_o3t2c"]
-shader = ExtResource("10_73718")
-shader_parameter/gradient_map = SubResource("GradientTexture1D_i55vg")
-
-[sub_resource type="Gradient" id="Gradient_wr8d6"]
-offsets = PackedFloat32Array(0, 0.333333, 0.666667, 1)
-colors = PackedColorArray(0.054902, 0.0117647, 0.219608, 1, 0.0431373, 0, 0.207843, 1, 0.992157, 0.345098, 0.321569, 1, 0.984314, 0.933333, 0.286275, 1)
-metadata/_snap_enabled = true
-metadata/_snap_count = 3
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_utsks"]
-gradient = SubResource("Gradient_wr8d6")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_cnco5"]
-shader = ExtResource("10_73718")
-shader_parameter/gradient_map = SubResource("GradientTexture1D_utsks")
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_scfe5")
@@ -137,41 +110,39 @@ grow_vertical = 2
 metadata/_edit_lock_ = true
 
 [node name="Health" type="TextureProgressBar" parent="HUD/HUD"]
-material = SubResource("ShaderMaterial_o3t2c")
 layout_mode = 0
 offset_left = 36.0
 offset_top = 94.0
 offset_right = 157.0
 offset_bottom = 969.0
-value = 100.0
+min_value = -3.0
+max_value = 115.0
+value = 66.0
 fill_mode = 3
-texture_under = ExtResource("11_kwsfr")
-texture_over = ExtResource("10_adgxk")
-texture_progress = ExtResource("11_vmkcv")
-texture_progress_offset = Vector2(35, 110)
+texture_under = ExtResource("10_nrtod")
+texture_over = ExtResource("11_rbumu")
+texture_progress = ExtResource("12_gtbxy")
 
 [node name="Timeline" type="Control" parent="HUD/HUD"]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="TextureRect" type="TextureRect" parent="HUD/HUD/Timeline"]
-modulate = Color(0.984314, 0.933333, 0.286275, 1)
+[node name="Bar" type="TextureRect" parent="HUD/HUD/Timeline"]
 layout_mode = 0
-offset_left = 1777.0
-offset_top = 91.0
-offset_right = 1878.0
-offset_bottom = 979.0
-texture = ExtResource("14_f6keq")
+offset_left = 1781.0
+offset_top = 94.0
+offset_right = 1888.0
+offset_bottom = 990.0
+texture = ExtResource("13_irn0d")
 
-[node name="TextureRect2" type="TextureRect" parent="HUD/HUD/Timeline"]
-material = SubResource("ShaderMaterial_cnco5")
+[node name="Marker" type="TextureRect" parent="HUD/HUD/Timeline"]
 layout_mode = 0
-offset_left = 1789.0
-offset_top = 707.0
-offset_right = 1869.0
-offset_bottom = 795.0
-texture = ExtResource("15_eedn6")
+offset_left = 1792.0
+offset_top = 914.0
+offset_right = 1880.0
+offset_bottom = 1008.0
+texture = ExtResource("14_42uej")
 
 [node name="Palette" type="Sprite2D" parent="."]
 position = Vector2(-394, 597)

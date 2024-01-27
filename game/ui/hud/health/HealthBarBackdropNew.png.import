@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5rxjejdlw80b"
-path="res://.godot/imported/TimelineBar.png-997ed0d8fced07848719e4d18ffa73b3.ctex"
+uid="uid://dtew7joycubnp"
+path="res://.godot/imported/HealthBarBackdropNew.png-b84be020f6cefb52b7aeebbef67baf63.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/ui/hud/TimelineBar.png"
-dest_files=["res://.godot/imported/TimelineBar.png-997ed0d8fced07848719e4d18ffa73b3.ctex"]
+source_file="res://game/ui/hud/health/HealthBarBackdropNew.png"
+dest_files=["res://.godot/imported/HealthBarBackdropNew.png-b84be020f6cefb52b7aeebbef67baf63.ctex"]
 
 [params]
 

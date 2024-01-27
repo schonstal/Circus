@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cy53fkw12j61i"
-path="res://.godot/imported/HealthBarFrame.png-e7071f251662b63efbe78ca202885a46.ctex"
+uid="uid://y1elaft6l8l1"
+path="res://.godot/imported/TimelineRabbitHead.png-5f4e328a5d9b761df385650616ca40c4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/ui/hud/HealthBarFrame.png"
-dest_files=["res://.godot/imported/HealthBarFrame.png-e7071f251662b63efbe78ca202885a46.ctex"]
+source_file="res://game/ui/hud/timeline/TimelineRabbitHead.png"
+dest_files=["res://.godot/imported/TimelineRabbitHead.png-5f4e328a5d9b761df385650616ca40c4.ctex"]
 
 [params]
 

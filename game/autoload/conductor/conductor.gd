@@ -2,7 +2,7 @@ extends Node
 
 @export var bpm := 146.0
 
-@onready var audio_stream_player := $AudioStreamPlayer
+@onready var audio_stream_player:AudioStreamPlayer = $AudioStreamPlayer
 
 var quantizations := {
   4: quarter,
@@ -21,6 +21,18 @@ var beats := {
   24: 0,
   32: 0
 }
+
+var elapsed:float :
+  get:
+    return (Time.get_ticks_usec() - time_begin) / 1_000_000.0 - time_delay
+    
+var length:float :
+  get:
+    return audio_stream_player.stream.get_length()
+    
+var progress:float :
+  get:
+    return max(self.elapsed / self.length, 0)
 
 var time_begin := 0.0
 var time_delay := 0.0
@@ -47,8 +59,7 @@ func _process(_delta: float) -> void:
   if !audio_stream_player.playing:
     return
 
-  var time = (Time.get_ticks_usec() - time_begin) / 1_000_000.0
-  time -= time_delay
+  var time = elapsed
   if time < 0:
     time = 0
     return

@@ -9,13 +9,13 @@
 [ext_resource type="PackedScene" uid="uid://csx0qmm2d4avv" path="res://game/hazard/ring_leader/ring_leader_hand.tscn" id="7_kd82m"]
 [ext_resource type="PackedScene" uid="uid://2lxlvaam2a67" path="res://game/hazard/ring_leader/ring_leader_head.tscn" id="8_fxrrh"]
 [ext_resource type="PackedScene" uid="uid://cftthli3rj0pr" path="res://game/hazard/projectile/card/card.tscn" id="10_f3w1p"]
-[ext_resource type="Texture2D" uid="uid://dqnj8wfg2fwpp" path="res://game/ui/hud/health/ColoredHealthBack.png" id="10_nrtod"]
 [ext_resource type="Texture2D" uid="uid://bitnx511w4o4p" path="res://game/ui/hud/health/ColoredHealthFrame.png" id="11_rbumu"]
 [ext_resource type="Texture2D" uid="uid://dxn6jwambo3kp" path="res://game/ui/hud/health/ColoredHealthBar.png" id="12_gtbxy"]
 [ext_resource type="Script" path="res://game/ui/hud/health/health.gd" id="13_fmo6j"]
 [ext_resource type="Texture2D" uid="uid://v6rafbrthvrx" path="res://game/ui/hud/timeline/ColoredTimeline.png" id="13_irn0d"]
 [ext_resource type="Texture2D" uid="uid://er6pft26u3f6" path="res://game/ui/hud/timeline/ColoredTimelineMarker.png" id="14_42uej"]
 [ext_resource type="Texture2D" uid="uid://c8ycfs5rasut0" path="res://game/palette.png" id="14_hv8nm"]
+[ext_resource type="Script" path="res://game/ui/hud/timeline/timeline.gd" id="14_qjcmi"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kpp60"]
 shader = ExtResource("2_tn58u")
@@ -110,25 +110,48 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_lock_ = true
 
-[node name="Health" type="TextureProgressBar" parent="HUD/HUD"]
-layout_mode = 0
-offset_left = 36.0
-offset_top = 94.0
-offset_right = 157.0
-offset_bottom = 969.0
-min_value = -3.0
-max_value = 115.0
-value = 66.0
-fill_mode = 3
-texture_under = ExtResource("10_nrtod")
-texture_over = ExtResource("11_rbumu")
-texture_progress = ExtResource("12_gtbxy")
-script = ExtResource("13_fmo6j")
-
-[node name="Timeline" type="Control" parent="HUD/HUD"]
+[node name="Health" type="Control" parent="HUD/HUD"]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("13_fmo6j")
+
+[node name="Flash" type="TextureProgressBar" parent="HUD/HUD/Health"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 94.0
+offset_right = 76.0
+offset_bottom = 134.0
+min_value = -3.0
+max_value = 115.0
+value = 100.0
+fill_mode = 3
+texture_under = ExtResource("12_gtbxy")
+texture_progress = ExtResource("12_gtbxy")
+tint_under = Color(0.2, 0, 2, 1)
+tint_progress = Color(3, 3, 1, 1)
+
+[node name="Health" type="TextureProgressBar" parent="HUD/HUD/Health"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 94.0
+offset_right = 165.0
+offset_bottom = 978.0
+min_value = -3.0
+max_value = 115.0
+value = 100.0
+fill_mode = 3
+texture_over = ExtResource("11_rbumu")
+texture_progress = ExtResource("12_gtbxy")
+
+[node name="Timeline" type="Control" parent="HUD/HUD"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("14_qjcmi")
 
 [node name="Bar" type="TextureRect" parent="HUD/HUD/Timeline"]
 layout_mode = 0
@@ -138,13 +161,15 @@ offset_right = 1888.0
 offset_bottom = 990.0
 texture = ExtResource("13_irn0d")
 
-[node name="Marker" type="TextureRect" parent="HUD/HUD/Timeline"]
-layout_mode = 0
-offset_left = 1792.0
-offset_top = 914.0
-offset_right = 1880.0
-offset_bottom = 1008.0
+[node name="Rabbit" type="Sprite2D" parent="HUD/HUD/Timeline"]
+position = Vector2(1844, 963)
 texture = ExtResource("14_42uej")
+
+[node name="Start" type="Marker2D" parent="HUD/HUD/Timeline"]
+position = Vector2(1835, 964)
+
+[node name="End" type="Marker2D" parent="HUD/HUD/Timeline"]
+position = Vector2(1835, 149)
 
 [node name="Palette" type="Sprite2D" parent="."]
 position = Vector2(-394, 597)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dy3wyn6ncf1cw"]
+[gd_scene load_steps=19 format=3 uid="uid://dy3wyn6ncf1cw"]
 
 [ext_resource type="PackedScene" uid="uid://cywiykw7n1cyf" path="res://game/background/background.tscn" id="1_aeadd"]
 [ext_resource type="Script" path="res://game/game.gd" id="1_scfe5"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://dqnj8wfg2fwpp" path="res://game/ui/hud/health/ColoredHealthBack.png" id="10_nrtod"]
 [ext_resource type="Texture2D" uid="uid://bitnx511w4o4p" path="res://game/ui/hud/health/ColoredHealthFrame.png" id="11_rbumu"]
 [ext_resource type="Texture2D" uid="uid://dxn6jwambo3kp" path="res://game/ui/hud/health/ColoredHealthBar.png" id="12_gtbxy"]
+[ext_resource type="Script" path="res://game/ui/hud/health/health.gd" id="13_fmo6j"]
 [ext_resource type="Texture2D" uid="uid://v6rafbrthvrx" path="res://game/ui/hud/timeline/ColoredTimeline.png" id="13_irn0d"]
 [ext_resource type="Texture2D" uid="uid://er6pft26u3f6" path="res://game/ui/hud/timeline/ColoredTimelineMarker.png" id="14_42uej"]
 [ext_resource type="Texture2D" uid="uid://c8ycfs5rasut0" path="res://game/palette.png" id="14_hv8nm"]
@@ -122,6 +123,7 @@ fill_mode = 3
 texture_under = ExtResource("10_nrtod")
 texture_over = ExtResource("11_rbumu")
 texture_progress = ExtResource("12_gtbxy")
+script = ExtResource("13_fmo6j")
 
 [node name="Timeline" type="Control" parent="HUD/HUD"]
 anchors_preset = 0

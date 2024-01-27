@@ -62,9 +62,11 @@ speed = 540
 
 [node name="Graphics" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_428ut")
-animation = &"run"
+animation = &"damaged"
 autoplay = "run"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 12)
 shape = SubResource("CircleShape2D_ybpuk")
+
+[connection signal="animation_finished" from="Graphics" to="." method="_on_graphics_animation_finished"]

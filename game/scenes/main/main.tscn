@@ -36,11 +36,9 @@ shader_parameter/antialias = 0.003
 [node name="Main" type="Node2D"]
 script = ExtResource("1_scfe5")
 
-[node name="Background" type="CanvasLayer" parent="."]
-
-[node name="Background" parent="Background" instance=ExtResource("1_aeadd")]
-
 [node name="Arena" type="CanvasLayer" parent="."]
+
+[node name="Background" parent="Arena" instance=ExtResource("1_aeadd")]
 
 [node name="Circle" type="Node2D" parent="Arena"]
 script = ExtResource("3_p5onr")
@@ -176,3 +174,5 @@ visible = false
 [node name="GameOver" parent="Menus" instance=ExtResource("19_wsxqy")]
 
 [node name="Victory" parent="Menus" instance=ExtResource("20_dxcpb")]
+
+[node name="Sequencer" type="AnimationPlayer" parent="."]

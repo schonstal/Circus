@@ -35,6 +35,10 @@ window/stretch/mode="canvas_items"
 
 enabled=PackedStringArray("res://addons/DampedOscillator/plugin.cfg")
 
+[gui]
+
+theme/custom="res://game/ui/default_theme.tres"
+
 [input]
 
 move_left={

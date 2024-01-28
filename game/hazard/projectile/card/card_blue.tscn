@@ -1,0 +1,63 @@
+[gd_scene load_steps=14 format=3 uid="uid://dn8hexhmsml1l"]
+
+[ext_resource type="Script" path="res://game/hazard/projectile/card/card.gd" id="1_16mlu"]
+[ext_resource type="Texture2D" uid="uid://byj41mi8mo0ku" path="res://game/hazard/projectile/card/BulletCardOutline.png" id="2_gma6n"]
+[ext_resource type="Script" path="res://game/hazard/projectile/outline.gd" id="3_4ditv"]
+[ext_resource type="Shader" path="res://game/hazard/projectile/projectile.gdshader" id="4_igosc"]
+[ext_resource type="Texture2D" uid="uid://c7sgrlevglf2" path="res://game/hazard/projectile/card/BulletCardClub.png" id="5_6xbbt"]
+[ext_resource type="Texture2D" uid="uid://mppsg83bmabq" path="res://game/hazard/projectile/card/BulletCardDiamond.png" id="6_7lt74"]
+[ext_resource type="Texture2D" uid="uid://dp7y1pbc60qjw" path="res://game/hazard/projectile/card/BulletCardHeart.png" id="7_ekal0"]
+[ext_resource type="Texture2D" uid="uid://bvgrlmtvx6q2x" path="res://game/hazard/projectile/card/BulletCardSpade.png" id="8_77c0r"]
+
+[sub_resource type="Gradient" id="Gradient_mwy1n"]
+offsets = PackedFloat32Array(0, 0.25, 0.612022, 0.978142, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.0421013, 0.0161174, 0.12382, 1, 0.227451, 0.654902, 0.980392, 1, 0.768627, 0.917647, 0.929412, 1, 1, 1, 1, 1)
+metadata/_snap_count = 4
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_eh7gx"]
+gradient = SubResource("Gradient_mwy1n")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cmnou"]
+shader = ExtResource("4_igosc")
+shader_parameter/gradient_map = SubResource("GradientTexture1D_eh7gx")
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uwrhb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_6xbbt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_7lt74")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ekal0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_77c0r")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xqwc0"]
+size = Vector2(32, 42)
+
+[node name="Card" type="Area2D"]
+collision_layer = 2
+script = ExtResource("1_16mlu")
+suit = 2
+
+[node name="BulletCardOutline" type="Sprite2D" parent="."]
+modulate = Color(0.227451, 0.654902, 0.980392, 1)
+texture = ExtResource("2_gma6n")
+script = ExtResource("3_4ditv")
+
+[node name="Card" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_cmnou")
+sprite_frames = SubResource("SpriteFrames_uwrhb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_xqwc0")

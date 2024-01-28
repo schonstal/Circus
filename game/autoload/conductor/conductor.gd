@@ -44,9 +44,6 @@ signal sixteenth(beat)
 signal twenty_fourth(beat)
 signal thirty_second(beat)
 
-func _ready() -> void:
-  play_music()
-
 func play_music() -> void:
   time_begin = Time.get_ticks_usec()
   time_delay = AudioServer.get_time_to_next_mix() + AudioServer.get_output_latency()

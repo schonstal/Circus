@@ -1,11 +1,25 @@
-[gd_scene load_steps=9 format=3 uid="uid://cftthli3rj0pr"]
+[gd_scene load_steps=14 format=3 uid="uid://cftthli3rj0pr"]
 
 [ext_resource type="Texture2D" uid="uid://byj41mi8mo0ku" path="res://game/hazard/projectile/card/BulletCardOutline.png" id="1_cvjhj"]
 [ext_resource type="Script" path="res://game/hazard/projectile/card/card.gd" id="1_pm15k"]
 [ext_resource type="Texture2D" uid="uid://c7sgrlevglf2" path="res://game/hazard/projectile/card/BulletCardClub.png" id="2_38owa"]
+[ext_resource type="Script" path="res://game/hazard/projectile/outline.gd" id="3_b8dhr"]
 [ext_resource type="Texture2D" uid="uid://mppsg83bmabq" path="res://game/hazard/projectile/card/BulletCardDiamond.png" id="3_vveay"]
+[ext_resource type="Shader" path="res://game/hazard/projectile/projectile.gdshader" id="3_y00ob"]
 [ext_resource type="Texture2D" uid="uid://dp7y1pbc60qjw" path="res://game/hazard/projectile/card/BulletCardHeart.png" id="4_a1kva"]
 [ext_resource type="Texture2D" uid="uid://bvgrlmtvx6q2x" path="res://game/hazard/projectile/card/BulletCardSpade.png" id="5_d5u0v"]
+
+[sub_resource type="Gradient" id="Gradient_owvqk"]
+offsets = PackedFloat32Array(0, 0.25, 0.612022, 0.978142, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.0421013, 0.0161174, 0.12382, 1, 0.992157, 0.345098, 0.321569, 1, 0.984314, 0.933333, 0.290196, 1, 1, 1, 1, 1)
+metadata/_snap_count = 4
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_f138y"]
+gradient = SubResource("Gradient_owvqk")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jk2gg"]
+shader = ExtResource("3_y00ob")
+shader_parameter/gradient_map = SubResource("GradientTexture1D_f138y")
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_uwrhb"]
 animations = [{
@@ -35,10 +49,14 @@ collision_layer = 2
 script = ExtResource("1_pm15k")
 
 [node name="BulletCardOutline" type="Sprite2D" parent="."]
+modulate = Color(0.992157, 0.345098, 0.321569, 1)
 texture = ExtResource("1_cvjhj")
+script = ExtResource("3_b8dhr")
 
 [node name="Card" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_jk2gg")
 sprite_frames = SubResource("SpriteFrames_uwrhb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("RectangleShape2D_xqwc0")

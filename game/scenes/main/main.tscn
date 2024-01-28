@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dy3wyn6ncf1cw"]
+[gd_scene load_steps=23 format=3 uid="uid://dy3wyn6ncf1cw"]
 
 [ext_resource type="PackedScene" uid="uid://cywiykw7n1cyf" path="res://game/background/background.tscn" id="1_aeadd"]
 [ext_resource type="Script" path="res://game/game.gd" id="1_scfe5"]
@@ -6,6 +6,8 @@
 [ext_resource type="Script" path="res://game/arena/circle.gd" id="3_p5onr"]
 [ext_resource type="PackedScene" uid="uid://dbyk28qnxnodo" path="res://game/player/player.tscn" id="4_b5g7f"]
 [ext_resource type="PackedScene" uid="uid://csx0qmm2d4avv" path="res://game/hazard/ring_leader/ring_leader_hand.tscn" id="7_kd82m"]
+[ext_resource type="Script" path="res://game/scenes/main/sixteenth_spawner.gd" id="7_n8hg1"]
+[ext_resource type="PackedScene" uid="uid://dn8hexhmsml1l" path="res://game/hazard/projectile/card/card_blue.tscn" id="8_11pug"]
 [ext_resource type="PackedScene" uid="uid://2lxlvaam2a67" path="res://game/hazard/ring_leader/ring_leader_head.tscn" id="8_fxrrh"]
 [ext_resource type="PackedScene" uid="uid://cftthli3rj0pr" path="res://game/hazard/projectile/card/card.tscn" id="10_f3w1p"]
 [ext_resource type="Texture2D" uid="uid://bitnx511w4o4p" path="res://game/ui/hud/health/ColoredHealthFrame.png" id="11_rbumu"]
@@ -14,6 +16,10 @@
 [ext_resource type="Texture2D" uid="uid://v6rafbrthvrx" path="res://game/ui/hud/timeline/ColoredTimeline.png" id="13_irn0d"]
 [ext_resource type="Texture2D" uid="uid://er6pft26u3f6" path="res://game/ui/hud/timeline/ColoredTimelineMarker.png" id="14_42uej"]
 [ext_resource type="Script" path="res://game/ui/hud/timeline/timeline.gd" id="14_qjcmi"]
+[ext_resource type="PackedScene" uid="uid://dubac1x6onn4j" path="res://game/ui/transition/transition.tscn" id="17_bxehs"]
+[ext_resource type="PackedScene" uid="uid://devalm8aolfaj" path="res://game/ui/menu/title/title.tscn" id="18_na72y"]
+[ext_resource type="PackedScene" uid="uid://dvc0fsul85qtr" path="res://game/ui/menu/game_over/game_over.tscn" id="19_wsxqy"]
+[ext_resource type="PackedScene" uid="uid://c8h7ts5moom87" path="res://game/ui/menu/victory/victory.tscn" id="20_dxcpb"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kpp60"]
 shader = ExtResource("2_tn58u")
@@ -55,20 +61,25 @@ flip = true
 speed = 1.2
 radius = 10.0
 
+[node name="SixteenthSpawner2" type="Node2D" parent="Arena/RightHand"]
+script = ExtResource("7_n8hg1")
+projectile = ExtResource("8_11pug")
+invert = true
+
 [node name="LeftHand" parent="Arena" instance=ExtResource("7_kd82m")]
 position = Vector2(301, 535)
 speed = 1.2
 radius = 10.0
+
+[node name="SixteenthSpawner" type="Node2D" parent="Arena/LeftHand"]
+script = ExtResource("7_n8hg1")
+projectile = ExtResource("10_f3w1p")
 
 [node name="Head" parent="Arena" instance=ExtResource("8_fxrrh")]
 position = Vector2(957, 159)
 
 [node name="Projectiles" type="Node2D" parent="Arena"]
 unique_name_in_owner = true
-
-[node name="Card" parent="Arena/Projectiles" instance=ExtResource("10_f3w1p")]
-position = Vector2(1147, 467)
-suit = 3
 
 [node name="Explosions" type="Node2D" parent="Arena"]
 unique_name_in_owner = true
@@ -130,6 +141,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("14_qjcmi")
 metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
 
 [node name="Bar" type="TextureRect" parent="HUD/HUD/Timeline"]
 layout_mode = 0
@@ -148,3 +160,16 @@ position = Vector2(1835, 964)
 
 [node name="End" type="Marker2D" parent="HUD/HUD/Timeline"]
 position = Vector2(1835, 149)
+
+[node name="Transition" type="CanvasLayer" parent="."]
+
+[node name="Transition" parent="Transition" instance=ExtResource("17_bxehs")]
+unique_name_in_owner = true
+
+[node name="Menus" type="CanvasLayer" parent="."]
+
+[node name="Title" parent="Menus" instance=ExtResource("18_na72y")]
+
+[node name="GameOver" parent="Menus" instance=ExtResource("19_wsxqy")]
+
+[node name="Victory" parent="Menus" instance=ExtResource("20_dxcpb")]

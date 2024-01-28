@@ -31,9 +31,9 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("2_tkbhe")
 }],
-"loop": true,
+"loop": false,
 "name": &"damaged",
-"speed": 5.0
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,

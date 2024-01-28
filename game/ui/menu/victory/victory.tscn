@@ -1,0 +1,168 @@
+[gd_scene load_steps=14 format=3 uid="uid://c8h7ts5moom87"]
+
+[ext_resource type="Shader" path="res://game/ui/menu/victory/victory_text.gdshader" id="1_s5ppy"]
+
+[sub_resource type="Gradient" id="Gradient_3srwg"]
+interpolation_mode = 1
+interpolation_color_space = 2
+offsets = PackedFloat32Array(0, 0.448087, 0.79235, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.992157, 0.964706, 0.584314, 1, 0.984314, 0.933333, 0.290196, 1, 0.792157, 0.537255, 0.176471, 1)
+metadata/_snap_count = 3
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_13vo2"]
+gradient = SubResource("Gradient_3srwg")
+fill_to = Vector2(0.09319, 0.835125)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w0p62"]
+shader = ExtResource("1_s5ppy")
+shader_parameter/angle = -0.2
+shader_parameter/thickness = 20.0
+shader_parameter/scale = 1.0
+shader_parameter/shear = Vector2(0, 0.4)
+shader_parameter/slices = 16
+shader_parameter/outline = true
+shader_parameter/outline_width = 5.0
+shader_parameter/front_tex = SubResource("GradientTexture2D_13vo2")
+shader_parameter/show_bound = false
+
+[sub_resource type="Gradient" id="Gradient_vomur"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.5)
+colors = PackedColorArray(0.992157, 0.964706, 0.584314, 1, 0.984314, 0.933333, 0.290196, 1)
+metadata/_snap_enabled = true
+metadata/_snap_count = 2
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_34ls7"]
+gradient = SubResource("Gradient_vomur")
+fill_to = Vector2(0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m3b5h"]
+shader = ExtResource("1_s5ppy")
+shader_parameter/angle = 0.0
+shader_parameter/thickness = 10.0
+shader_parameter/scale = 1.0
+shader_parameter/shear = Vector2(0, 0)
+shader_parameter/slices = 16
+shader_parameter/outline = true
+shader_parameter/outline_width = 2.0
+shader_parameter/front_tex = SubResource("GradientTexture2D_34ls7")
+shader_parameter/show_bound = false
+
+[sub_resource type="Gradient" id="Gradient_1vhdq"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.5)
+colors = PackedColorArray(0.992157, 0.345098, 0.321569, 1, 0.997109, 0.545575, 0.506651, 1)
+metadata/_snap_count = 2
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_btcp0"]
+gradient = SubResource("Gradient_1vhdq")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0.0537634)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k03k5"]
+shader = ExtResource("1_s5ppy")
+shader_parameter/angle = 0.0
+shader_parameter/thickness = 10.0
+shader_parameter/scale = 1.0
+shader_parameter/shear = Vector2(0, 0)
+shader_parameter/slices = 16
+shader_parameter/outline = true
+shader_parameter/outline_width = 5.0
+shader_parameter/front_tex = SubResource("GradientTexture2D_btcp0")
+shader_parameter/show_bound = false
+
+[sub_resource type="Gradient" id="Gradient_g5p08"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.5)
+colors = PackedColorArray(0.768627, 0.917647, 0.929412, 1, 1, 1, 1, 1)
+metadata/_snap_count = 2
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1cpny"]
+gradient = SubResource("Gradient_g5p08")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0.0537634)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r15ah"]
+shader = ExtResource("1_s5ppy")
+shader_parameter/angle = 0.0
+shader_parameter/thickness = 10.0
+shader_parameter/scale = 1.0
+shader_parameter/shear = Vector2(0, 0)
+shader_parameter/slices = 16
+shader_parameter/outline = true
+shader_parameter/outline_width = 5.0
+shader_parameter/front_tex = SubResource("GradientTexture2D_1cpny")
+shader_parameter/show_bound = false
+
+[node name="Victory" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 200
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="RichTextLabel" parent="VBoxContainer/MarginContainer/HBoxContainer"]
+material = SubResource("ShaderMaterial_w0p62")
+custom_minimum_size = Vector2(580, 160)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 128
+bbcode_enabled = true
+text = "[wave]THE  END[/wave]"
+
+[node name="Spacer2" type="Control" parent="VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 80
+
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer2"]
+material = SubResource("ShaderMaterial_m3b5h")
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 30
+text = "TIME"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+material = SubResource("ShaderMaterial_k03k5")
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 30
+theme_override_font_sizes/font_size = 128
+text = "1:27"
+horizontal_alignment = 1
+
+[node name="Spacer" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+material = SubResource("ShaderMaterial_r15ah")
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 30
+theme_override_font_sizes/font_size = 64
+text = "PRESS X TO TRY AGAIN"
+horizontal_alignment = 1

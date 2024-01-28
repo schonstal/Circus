@@ -23,8 +23,8 @@ func hurt(amount:int) -> void:
   health = max(health - amount, 0)
   EventBus.player_health_changed.emit(self, health - health_was)
   
-  graphics.play(&"damaged")
+  graphics.play("damaged")
 
 func _on_graphics_animation_finished() -> void:
-  if graphics.animation == &"damaged":
-    graphics.play(&"run")
+  if graphics.animation == "damaged":
+    graphics.play("run")

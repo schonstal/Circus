@@ -6,12 +6,8 @@ extends Area2D
 var velocity:Vector2
 
 func _ready() -> void:
-  velocity = Vector2(sin(index)*50, cos(index)*50);
   body_entered.connect(_on_body_entered)
 
-func _process(delta: float) -> void:
-  rotation += delta * TAU
-  
 func _physics_process(delta: float) -> void:
   position += velocity * delta
 

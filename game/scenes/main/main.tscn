@@ -24,7 +24,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kpp60"]
 shader = ExtResource("2_tn58u")
 shader_parameter/border_color = Color(0.992157, 0.956863, 0.521569, 1)
-shader_parameter/inner_color = Color(0.00392157, 0, 0.0431373, 1)
+shader_parameter/inner_color = Color(0.0352941, 0.0117647, 0.109804, 0.858824)
 shader_parameter/outline_color = Color(0, 0, 0, 1)
 shader_parameter/outline_thickness = 0.011
 shader_parameter/radius = 0.81
@@ -84,6 +84,9 @@ unique_name_in_owner = true
 
 [node name="Explosions" type="Node2D" parent="Arena"]
 unique_name_in_owner = true
+
+[node name="Camera2D" type="Camera2D" parent="Arena"]
+position = Vector2(960, 540)
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
@@ -163,13 +166,11 @@ position = Vector2(1835, 964)
 position = Vector2(1835, 149)
 
 [node name="Transition" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Transition" parent="Transition" instance=ExtResource("17_bxehs")]
 unique_name_in_owner = true
 
 [node name="Menus" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Title" parent="Menus" instance=ExtResource("18_na72y")]
 

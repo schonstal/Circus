@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://dbyk28qnxnodo"]
+[gd_scene load_steps=17 format=3 uid="uid://dbyk28qnxnodo"]
 
 [ext_resource type="Script" path="res://game/player/player.gd" id="1_b120n"]
 [ext_resource type="Texture2D" uid="uid://drh18mmid77ly" path="res://game/player/skin/RabbitDamaged.png" id="2_tkbhe"]
+[ext_resource type="Shader" path="res://game/player/player.gdshader" id="2_yeqeg"]
 [ext_resource type="Texture2D" uid="uid://c3wls0veb1d87" path="res://game/player/skin/RabbitMove0001.png" id="3_gojal"]
 [ext_resource type="Texture2D" uid="uid://b34gr43m7bf2u" path="res://game/player/skin/RabbitMove0002.png" id="4_a7k60"]
 [ext_resource type="Texture2D" uid="uid://bovxgve75x5xg" path="res://game/player/skin/RabbitMove0003.png" id="5_0g1s3"]
@@ -10,6 +11,19 @@
 [ext_resource type="Texture2D" uid="uid://coi8mrnapktcl" path="res://game/player/skin/RabbitMove0006.png" id="8_ojtmq"]
 [ext_resource type="Texture2D" uid="uid://c57vyefrnop7f" path="res://game/player/skin/RabbitMove0007.png" id="9_h1bgo"]
 [ext_resource type="Texture2D" uid="uid://wsmrobsrtp3y" path="res://game/player/skin/RabbitMove0008.png" id="10_b6rwg"]
+
+[sub_resource type="Gradient" id="Gradient_tx5kt"]
+interpolation_color_space = 2
+offsets = PackedFloat32Array(0, 0.323383, 0.621891, 0.825871, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.0431373, 0, 0.207843, 1, 0.443137, 0.317647, 0.819608, 1, 0.72549, 1, 0.368627, 1, 1, 1, 1, 1)
+metadata/_snap_count = 4
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_qf1oi"]
+gradient = SubResource("Gradient_tx5kt")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7fagh"]
+shader = ExtResource("2_yeqeg")
+shader_parameter/gradient_map = SubResource("GradientTexture1D_qf1oi")
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_428ut"]
 animations = [{
@@ -61,11 +75,13 @@ script = ExtResource("1_b120n")
 speed = 540
 
 [node name="Graphics" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_7fagh")
 sprite_frames = SubResource("SpriteFrames_428ut")
 animation = &"damaged"
 autoplay = "run"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(-1, 12)
 shape = SubResource("CircleShape2D_ybpuk")
 

@@ -1,9 +1,8 @@
-[gd_scene load_steps=19 format=3 uid="uid://dy3wyn6ncf1cw"]
+[gd_scene load_steps=17 format=3 uid="uid://dy3wyn6ncf1cw"]
 
 [ext_resource type="PackedScene" uid="uid://cywiykw7n1cyf" path="res://game/background/background.tscn" id="1_aeadd"]
 [ext_resource type="Script" path="res://game/game.gd" id="1_scfe5"]
 [ext_resource type="Shader" path="res://game/arena/ring.gdshader" id="2_tn58u"]
-[ext_resource type="PackedScene" uid="uid://lx031gf4oghp" path="res://game/hazard/projectile/projectile.tscn" id="3_07g83"]
 [ext_resource type="Script" path="res://game/arena/circle.gd" id="3_p5onr"]
 [ext_resource type="PackedScene" uid="uid://dbyk28qnxnodo" path="res://game/player/player.tscn" id="4_b5g7f"]
 [ext_resource type="PackedScene" uid="uid://csx0qmm2d4avv" path="res://game/hazard/ring_leader/ring_leader_hand.tscn" id="7_kd82m"]
@@ -14,13 +13,12 @@
 [ext_resource type="Script" path="res://game/ui/hud/health/health.gd" id="13_fmo6j"]
 [ext_resource type="Texture2D" uid="uid://v6rafbrthvrx" path="res://game/ui/hud/timeline/ColoredTimeline.png" id="13_irn0d"]
 [ext_resource type="Texture2D" uid="uid://er6pft26u3f6" path="res://game/ui/hud/timeline/ColoredTimelineMarker.png" id="14_42uej"]
-[ext_resource type="Texture2D" uid="uid://c8ycfs5rasut0" path="res://game/palette.png" id="14_hv8nm"]
 [ext_resource type="Script" path="res://game/ui/hud/timeline/timeline.gd" id="14_qjcmi"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kpp60"]
 shader = ExtResource("2_tn58u")
-shader_parameter/border_color = Color(0.815686, 0.796078, 0.541176, 1)
-shader_parameter/inner_color = Color(0, 0, 0, 0.662745)
+shader_parameter/border_color = Color(0.992157, 0.956863, 0.521569, 1)
+shader_parameter/inner_color = Color(0.00392157, 0, 0.0431373, 1)
 shader_parameter/outline_color = Color(0, 0, 0, 1)
 shader_parameter/outline_thickness = 0.011
 shader_parameter/radius = 0.81
@@ -47,30 +45,6 @@ offset_left = 420.0
 offset_right = 1500.0
 offset_bottom = 1080.0
 texture = SubResource("PlaceholderTexture2D_oyprf")
-
-[node name="Projectile" parent="Arena/Circle" instance=ExtResource("3_07g83")]
-position = Vector2(957, 535)
-
-[node name="Projectile2" parent="Arena/Circle" instance=ExtResource("3_07g83")]
-position = Vector2(957, 535)
-index = 1
-
-[node name="Projectile3" parent="Arena/Circle" instance=ExtResource("3_07g83")]
-position = Vector2(957, 535)
-index = 2
-
-[node name="Projectile4" parent="Arena/Circle" instance=ExtResource("3_07g83")]
-position = Vector2(957, 535)
-index = 3
-
-[node name="Projectile5" parent="Arena/Circle" instance=ExtResource("3_07g83")]
-position = Vector2(957, 535)
-index = 4
-
-[node name="Projectile6" parent="Arena/Circle" instance=ExtResource("3_07g83")]
-visible = false
-position = Vector2(957, 535)
-index = 6
 
 [node name="Player" parent="Arena" instance=ExtResource("4_b5g7f")]
 position = Vector2(847, 581)
@@ -115,6 +89,7 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("13_fmo6j")
+metadata/_edit_use_anchors_ = true
 
 [node name="Flash" type="TextureProgressBar" parent="HUD/HUD/Health"]
 layout_mode = 0
@@ -130,6 +105,7 @@ texture_under = ExtResource("12_gtbxy")
 texture_progress = ExtResource("12_gtbxy")
 tint_under = Color(0.2, 0, 2, 1)
 tint_progress = Color(3, 3, 1, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="Health" type="TextureProgressBar" parent="HUD/HUD/Health"]
 layout_mode = 0
@@ -143,6 +119,7 @@ value = 100.0
 fill_mode = 3
 texture_over = ExtResource("11_rbumu")
 texture_progress = ExtResource("12_gtbxy")
+metadata/_edit_use_anchors_ = true
 
 [node name="Timeline" type="Control" parent="HUD/HUD"]
 layout_mode = 1
@@ -152,6 +129,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("14_qjcmi")
+metadata/_edit_use_anchors_ = true
 
 [node name="Bar" type="TextureRect" parent="HUD/HUD/Timeline"]
 layout_mode = 0
@@ -170,7 +148,3 @@ position = Vector2(1835, 964)
 
 [node name="End" type="Marker2D" parent="HUD/HUD/Timeline"]
 position = Vector2(1835, 149)
-
-[node name="Palette" type="Sprite2D" parent="."]
-position = Vector2(-394, 597)
-texture = ExtResource("14_hv8nm")

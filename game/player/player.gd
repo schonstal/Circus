@@ -2,14 +2,22 @@ class_name Player
 extends CharacterBody2D
 
 @onready var graphics: AnimatedSprite2D = $Graphics
+@onready var hitbox_visual: Sprite2D = $HitboxVisual
 
-@export_range(1, 1000) var speed := 300
+@export_range(1, 1000) var speed := 300.0
+@export_range(1, 1000) var focus_speed := 150.0
 
 var health := 100
 
 func _process(delta: float) -> void:
   var direction := Input.get_vector("move_left", "move_right", "move_up", "move_down")
-  velocity = direction * speed
+  
+  if Input.is_action_pressed("focus"):
+    hitbox_visual.visible = true
+    velocity = direction * focus_speed
+  else:
+    hitbox_visual.visible = false
+    velocity = direction * speed
 
 func _physics_process(delta: float) -> void:
   move_and_slide()

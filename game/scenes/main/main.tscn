@@ -54,6 +54,7 @@ texture = SubResource("PlaceholderTexture2D_oyprf")
 
 [node name="Player" parent="Arena" instance=ExtResource("4_b5g7f")]
 position = Vector2(847, 581)
+speed = 300.0
 
 [node name="RightHand" parent="Arena" instance=ExtResource("7_kd82m")]
 position = Vector2(1627, 537)
@@ -162,11 +163,13 @@ position = Vector2(1835, 964)
 position = Vector2(1835, 149)
 
 [node name="Transition" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Transition" parent="Transition" instance=ExtResource("17_bxehs")]
 unique_name_in_owner = true
 
 [node name="Menus" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Title" parent="Menus" instance=ExtResource("18_na72y")]
 

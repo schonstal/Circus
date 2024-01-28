@@ -36,56 +36,57 @@ shader_parameter/antialias = 0.003
 [node name="Main" type="Node2D"]
 script = ExtResource("1_scfe5")
 
-[node name="Background" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
 
-[node name="Background" parent="Background" instance=ExtResource("1_aeadd")]
+[node name="Background" parent="CanvasLayer" instance=ExtResource("1_aeadd")]
 
-[node name="Arena" type="CanvasLayer" parent="."]
+[node name="World" type="Node2D" parent="."]
 
-[node name="Circle" type="Node2D" parent="Arena"]
+[node name="Circle" type="Node2D" parent="World"]
 script = ExtResource("3_p5onr")
 
-[node name="TextureRect" type="TextureRect" parent="Arena/Circle"]
+[node name="TextureRect" type="TextureRect" parent="World/Circle"]
 material = SubResource("ShaderMaterial_kpp60")
 offset_left = 420.0
 offset_right = 1500.0
 offset_bottom = 1080.0
 texture = SubResource("PlaceholderTexture2D_oyprf")
 
-[node name="Player" parent="Arena" instance=ExtResource("4_b5g7f")]
+[node name="Player" parent="World" instance=ExtResource("4_b5g7f")]
 position = Vector2(847, 581)
 speed = 300.0
 
-[node name="RightHand" parent="Arena" instance=ExtResource("7_kd82m")]
+[node name="RightHand" parent="World" instance=ExtResource("7_kd82m")]
 position = Vector2(1627, 537)
 flip = true
 speed = 1.2
 radius = 10.0
 
-[node name="SixteenthSpawner2" type="Node2D" parent="Arena/RightHand"]
+[node name="SixteenthSpawner2" type="Node2D" parent="World/RightHand"]
 script = ExtResource("7_n8hg1")
 projectile = ExtResource("8_11pug")
 invert = true
 
-[node name="LeftHand" parent="Arena" instance=ExtResource("7_kd82m")]
+[node name="LeftHand" parent="World" instance=ExtResource("7_kd82m")]
 position = Vector2(301, 535)
 speed = 1.2
 radius = 10.0
 
-[node name="SixteenthSpawner" type="Node2D" parent="Arena/LeftHand"]
+[node name="SixteenthSpawner" type="Node2D" parent="World/LeftHand"]
 script = ExtResource("7_n8hg1")
 projectile = ExtResource("10_f3w1p")
 
-[node name="Head" parent="Arena" instance=ExtResource("8_fxrrh")]
+[node name="Head" parent="World" instance=ExtResource("8_fxrrh")]
 position = Vector2(957, 159)
 
-[node name="Projectiles" type="Node2D" parent="Arena"]
+[node name="Projectiles" type="Node2D" parent="World"]
 unique_name_in_owner = true
 
-[node name="Explosions" type="Node2D" parent="Arena"]
+[node name="Explosions" type="Node2D" parent="World"]
 unique_name_in_owner = true
 
-[node name="Camera2D" type="Camera2D" parent="Arena"]
+[node name="Camera2D" type="Camera2D" parent="World"]
 position = Vector2(960, 540)
 
 [node name="HUD" type="CanvasLayer" parent="."]
@@ -165,17 +166,24 @@ position = Vector2(1835, 964)
 [node name="End" type="Marker2D" parent="HUD/HUD/Timeline"]
 position = Vector2(1835, 149)
 
-[node name="Transition" type="CanvasLayer" parent="."]
-
-[node name="Transition" parent="Transition" instance=ExtResource("17_bxehs")]
+[node name="Transition" parent="HUD" instance=ExtResource("17_bxehs")]
 unique_name_in_owner = true
+visible = false
 
-[node name="Menus" type="CanvasLayer" parent="."]
+[node name="Menus" type="Control" parent="HUD"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Title" parent="Menus" instance=ExtResource("18_na72y")]
+[node name="Title" parent="HUD/Menus" instance=ExtResource("18_na72y")]
+layout_mode = 1
 
-[node name="GameOver" parent="Menus" instance=ExtResource("19_wsxqy")]
+[node name="GameOver" parent="HUD/Menus" instance=ExtResource("19_wsxqy")]
+layout_mode = 1
 
-[node name="Victory" parent="Menus" instance=ExtResource("20_dxcpb")]
-
-[node name="Sequencer" type="AnimationPlayer" parent="."]
+[node name="Victory" parent="HUD/Menus" instance=ExtResource("20_dxcpb")]
+layout_mode = 1

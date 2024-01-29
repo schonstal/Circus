@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dy3wyn6ncf1cw"]
+[gd_scene load_steps=27 format=3 uid="uid://dy3wyn6ncf1cw"]
 
 [ext_resource type="PackedScene" uid="uid://cywiykw7n1cyf" path="res://game/background/background.tscn" id="1_aeadd"]
 [ext_resource type="Script" path="res://game/game.gd" id="1_scfe5"]
@@ -18,6 +18,8 @@
 [ext_resource type="Script" path="res://game/ui/hud/timeline/timeline.gd" id="14_qjcmi"]
 [ext_resource type="PackedScene" uid="uid://dubac1x6onn4j" path="res://game/ui/transition/transition.tscn" id="17_bxehs"]
 [ext_resource type="PackedScene" uid="uid://devalm8aolfaj" path="res://game/ui/menu/title/title.tscn" id="18_na72y"]
+[ext_resource type="Texture2D" uid="uid://dt264amdy1nay" path="res://game/ui/spotlight/Spotlight.png" id="18_uts17"]
+[ext_resource type="Script" path="res://game/ui/spotlight/spotlight.gd" id="19_dpcsf"]
 [ext_resource type="PackedScene" uid="uid://dvc0fsul85qtr" path="res://game/ui/menu/game_over/game_over.tscn" id="19_wsxqy"]
 [ext_resource type="PackedScene" uid="uid://c8h7ts5moom87" path="res://game/ui/menu/victory/victory.tscn" id="20_dxcpb"]
 
@@ -32,6 +34,12 @@ shader_parameter/thickness = 0.035
 shader_parameter/antialias = 0.003
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_oyprf"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_kw6lw"]
+blend_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_u6quv"]
+blend_mode = 1
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_scfe5")
@@ -168,10 +176,8 @@ position = Vector2(1835, 149)
 
 [node name="Transition" parent="HUD" instance=ExtResource("17_bxehs")]
 unique_name_in_owner = true
-visible = false
 
 [node name="Menus" type="Control" parent="HUD"]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -179,11 +185,39 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="ColorRect" type="ColorRect" parent="HUD/Menus"]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 0.501961)
+
+[node name="Spotlights" type="Node2D" parent="HUD/Menus"]
+
+[node name="One" type="Sprite2D" parent="HUD/Menus/Spotlights"]
+material = SubResource("CanvasItemMaterial_kw6lw")
+position = Vector2(1208.24, 407.459)
+texture = ExtResource("18_uts17")
+script = ExtResource("19_dpcsf")
+frequency = Vector2(0.5, 0.25)
+radius = Vector2(300, 150)
+
+[node name="Two" type="Sprite2D" parent="HUD/Menus/Spotlights"]
+material = SubResource("CanvasItemMaterial_u6quv")
+position = Vector2(711.76, 455.773)
+texture = ExtResource("18_uts17")
+script = ExtResource("19_dpcsf")
+frequency = Vector2(0.5, -0.5)
+radius = Vector2(-300, -150)
+
 [node name="Title" parent="HUD/Menus" instance=ExtResource("18_na72y")]
 layout_mode = 1
+metadata/_edit_lock_ = true
 
 [node name="GameOver" parent="HUD/Menus" instance=ExtResource("19_wsxqy")]
 layout_mode = 1
+metadata/_edit_lock_ = true
 
 [node name="Victory" parent="HUD/Menus" instance=ExtResource("20_dxcpb")]
+visible = false
 layout_mode = 1
+metadata/_edit_lock_ = true

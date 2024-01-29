@@ -1,4 +1,45 @@
-[gd_scene format=3 uid="uid://devalm8aolfaj"]
+[gd_scene load_steps=8 format=3 uid="uid://devalm8aolfaj"]
+
+[ext_resource type="Texture2D" uid="uid://bj5acs0vx43gn" path="res://game/ui/menu/title/Logo0001.png" id="1_jrd8n"]
+[ext_resource type="Texture2D" uid="uid://o5tx5ahfyrv5" path="res://game/ui/menu/title/Logo0002.png" id="2_pwiuc"]
+[ext_resource type="Shader" path="res://game/ui/menu/victory/victory_text.gdshader" id="3_pomp7"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ia1ng"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_jrd8n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_pwiuc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_1iwvy"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.5)
+colors = PackedColorArray(1, 1, 1, 1, 0.984314, 0.933333, 0.286275, 1)
+metadata/_snap_enabled = true
+metadata/_snap_count = 2
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0k8xt"]
+gradient = SubResource("Gradient_1iwvy")
+fill_to = Vector2(0.154122, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0ce4e"]
+shader = ExtResource("3_pomp7")
+shader_parameter/angle = -0.1
+shader_parameter/thickness = 10.0
+shader_parameter/scale = 1.0
+shader_parameter/shear = Vector2(-0.2, -0.6)
+shader_parameter/slices = 16
+shader_parameter/outline = true
+shader_parameter/outline_width = 2.0
+shader_parameter/front_tex = SubResource("GradientTexture2D_0k8xt")
+shader_parameter/show_bound = false
 
 [node name="Title" type="Control"]
 layout_mode = 3
@@ -7,3 +48,30 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(960, 500)
+scale = Vector2(0.8, 0.8)
+sprite_frames = SubResource("SpriteFrames_ia1ng")
+autoplay = "default"
+frame_progress = 0.91337
+
+[node name="Label" type="RichTextLabel" parent="."]
+material = SubResource("ShaderMaterial_0ce4e")
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 633.0
+offset_top = 243.0
+offset_right = -590.0
+offset_bottom = 490.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 30
+bbcode_enabled = true
+text = "[pulse freq=1.0 color=#222222ff ease=-10.0]
+ PRESS X TO BEGIN
+[/pulse]"

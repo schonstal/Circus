@@ -49,6 +49,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 675.0
+offset_top = 205.0
+offset_right = 1238.0
+offset_bottom = 784.0
+color = Color(0.0423084, 0.0165297, 0.122409, 0.670588)
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(960, 500)
 scale = Vector2(0.8, 0.8)

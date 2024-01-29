@@ -24,6 +24,7 @@ ExplosionService="*res://game/autoload/explosion_service.gd"
 GameService="*res://game/autoload/game_service.gd"
 Conductor="*res://game/autoload/conductor/conductor.tscn"
 DampedOscillator="*res://addons/DampedOscillator/scripts/damped_oscillator.tscn"
+TransitionService="*res://game/autoload/transition_service.gd"
 
 [display]
 

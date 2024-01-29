@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dy3wyn6ncf1cw"]
+[gd_scene load_steps=24 format=3 uid="uid://dy3wyn6ncf1cw"]
 
 [ext_resource type="PackedScene" uid="uid://cywiykw7n1cyf" path="res://game/background/background.tscn" id="1_aeadd"]
 [ext_resource type="Script" path="res://game/game.gd" id="1_scfe5"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://er6pft26u3f6" path="res://game/ui/hud/timeline/ColoredTimelineMarker.png" id="14_42uej"]
 [ext_resource type="Script" path="res://game/ui/hud/timeline/timeline.gd" id="14_qjcmi"]
 [ext_resource type="PackedScene" uid="uid://dubac1x6onn4j" path="res://game/ui/transition/transition.tscn" id="17_bxehs"]
+[ext_resource type="Script" path="res://game/ui/menu/menus.gd" id="18_5m0ka"]
 [ext_resource type="PackedScene" uid="uid://devalm8aolfaj" path="res://game/ui/menu/title/title.tscn" id="18_na72y"]
 [ext_resource type="PackedScene" uid="uid://dvc0fsul85qtr" path="res://game/ui/menu/game_over/game_over.tscn" id="19_wsxqy"]
 [ext_resource type="PackedScene" uid="uid://c8h7ts5moom87" path="res://game/ui/menu/victory/victory.tscn" id="20_dxcpb"]
@@ -176,12 +177,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("18_5m0ka")
 
 [node name="Title" parent="HUD/Menus" instance=ExtResource("18_na72y")]
 layout_mode = 1
 metadata/_edit_lock_ = true
 
 [node name="GameOver" parent="HUD/Menus" instance=ExtResource("19_wsxqy")]
+visible = false
 layout_mode = 1
 metadata/_edit_lock_ = true
 

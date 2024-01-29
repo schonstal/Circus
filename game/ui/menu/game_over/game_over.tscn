@@ -1,4 +1,161 @@
-[gd_scene format=3 uid="uid://dvc0fsul85qtr"]
+[gd_scene load_steps=18 format=3 uid="uid://dvc0fsul85qtr"]
+
+[ext_resource type="Shader" path="res://game/ui/menu/victory/victory_text.gdshader" id="1_7xo3l"]
+[ext_resource type="Script" path="res://game/ui/menu/game_over/game_over.gd" id="1_iw3n6"]
+
+[sub_resource type="Gradient" id="Gradient_0c46n"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.5)
+colors = PackedColorArray(0.992157, 0.345098, 0.321569, 1, 0.975059, 0.114293, 0.1705, 1)
+metadata/_snap_count = 2
+metadata/_snap_enabled = true
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_adnix"]
+gradient = SubResource("Gradient_0c46n")
+fill_to = Vector2(0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qdq74"]
+shader = ExtResource("1_7xo3l")
+shader_parameter/angle = 0.0
+shader_parameter/thickness = 10.0
+shader_parameter/scale = 1.0
+shader_parameter/shear = Vector2(0, -0.4)
+shader_parameter/slices = 16
+shader_parameter/outline = true
+shader_parameter/outline_width = 2.0
+shader_parameter/front_tex = SubResource("GradientTexture2D_adnix")
+shader_parameter/show_bound = false
+
+[sub_resource type="Gradient" id="Gradient_4pc6q"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.5)
+colors = PackedColorArray(0.992157, 0.345098, 0.321569, 1, 0.908525, 0.0904266, 0.150799, 1)
+metadata/_snap_enabled = true
+metadata/_snap_count = 2
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7tad6"]
+gradient = SubResource("Gradient_4pc6q")
+fill_to = Vector2(0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_76qhq"]
+shader = ExtResource("1_7xo3l")
+shader_parameter/angle = 0.135
+shader_parameter/thickness = 10.0
+shader_parameter/scale = 1.0
+shader_parameter/shear = Vector2(0, -0.4)
+shader_parameter/slices = 16
+shader_parameter/outline = true
+shader_parameter/outline_width = 2.0
+shader_parameter/front_tex = SubResource("GradientTexture2D_7tad6")
+shader_parameter/show_bound = false
+
+[sub_resource type="Gradient" id="Gradient_4aatq"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.25, 0.5, 0.75)
+colors = PackedColorArray(1, 1, 1, 1, 0.992157, 0.964706, 0.584314, 1, 0.984314, 0.933333, 0.290196, 1, 0.792157, 0.537255, 0.176471, 1)
+metadata/_snap_enabled = true
+metadata/_snap_count = 4
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5xv0v"]
+gradient = SubResource("Gradient_4aatq")
+fill_to = Vector2(0.139785, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8bdl0"]
+shader = ExtResource("1_7xo3l")
+shader_parameter/angle = -0.2
+shader_parameter/thickness = 10.0
+shader_parameter/scale = 1.0
+shader_parameter/shear = Vector2(0, -0.4)
+shader_parameter/slices = 16
+shader_parameter/outline = true
+shader_parameter/outline_width = 2.0
+shader_parameter/front_tex = SubResource("GradientTexture2D_5xv0v")
+shader_parameter/show_bound = false
+
+[sub_resource type="Animation" id="Animation_jibfq"]
+resource_name = "idle"
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/angle")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1.1, 1.1),
+"update": 0,
+"values": [-0.4, 0.4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:material:shader_parameter/shear")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0.2)]
+}
+
+[sub_resource type="Animation" id="Animation_3u80o"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/angle")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:material:shader_parameter/shear")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -0.4)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qt60n"]
+_data = {
+"RESET": SubResource("Animation_3u80o"),
+"idle": SubResource("Animation_jibfq")
+}
+
+[sub_resource type="Gradient" id="Gradient_qydwi"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.5)
+colors = PackedColorArray(1, 1, 1, 1, 0.992157, 0.964706, 0.584314, 1)
+metadata/_snap_enabled = true
+metadata/_snap_count = 2
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8uivm"]
+gradient = SubResource("Gradient_qydwi")
+fill_to = Vector2(0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2vpwq"]
+shader = ExtResource("1_7xo3l")
+shader_parameter/angle = 0.0
+shader_parameter/thickness = 10.0
+shader_parameter/scale = 1.0
+shader_parameter/shear = Vector2(0, -0.4)
+shader_parameter/slices = 16
+shader_parameter/outline = true
+shader_parameter/outline_width = 2.0
+shader_parameter/front_tex = SubResource("GradientTexture2D_8uivm")
+shader_parameter/show_bound = false
 
 [node name="GameOver" type="Control"]
 layout_mode = 3
@@ -7,3 +164,73 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_iw3n6")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 158.565
+grow_horizontal = 2
+theme_override_constants/margin_top = 200
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="RichTextLabel" parent="MarginContainer/VBoxContainer/CenterContainer"]
+material = SubResource("ShaderMaterial_qdq74")
+custom_minimum_size = Vector2(714.8, 158.565)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/normal_font_size = 128
+bbcode_enabled = true
+text = " [pulse freq=1.0 color=#222222ff ease=-10.0]YOU DIED[/pulse]"
+scroll_active = false
+
+[node name="Spacer" type="Control" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="ScoreHeader" type="Label" parent="MarginContainer/VBoxContainer"]
+material = SubResource("ShaderMaterial_76qhq")
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+text = "FINAL SCORE"
+horizontal_alignment = 1
+
+[node name="ScoreText" type="Label" parent="MarginContainer/VBoxContainer"]
+material = SubResource("ShaderMaterial_8bdl0")
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 40
+theme_override_font_sizes/font_size = 128
+text = "1,234,567"
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MarginContainer/VBoxContainer/ScoreText"]
+libraries = {
+"": SubResource("AnimationLibrary_qt60n")
+}
+autoplay = "idle"
+speed_scale = 0.25
+
+[node name="Spacer2" type="Control" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="CenterContainer2" type="CenterContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TryAgain" type="RichTextLabel" parent="MarginContainer/VBoxContainer/CenterContainer2"]
+material = SubResource("ShaderMaterial_2vpwq")
+custom_minimum_size = Vector2(880, 100)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+bbcode_enabled = true
+text = " [pulse freq=1 color=#222222ff ease=-10.0]PRESS X FOR AN ENCORE[/pulse]"

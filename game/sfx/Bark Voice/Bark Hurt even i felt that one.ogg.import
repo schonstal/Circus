@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cdjqxt87fbogy"
+path="res://.godot/imported/Bark Hurt even i felt that one.ogg-9914f105ec138630c063265fb0853dc7.oggvorbisstr"
+
+[deps]
+
+source_file="res://game/sfx/Bark Voice/Bark Hurt even i felt that one.ogg"
+dest_files=["res://.godot/imported/Bark Hurt even i felt that one.ogg-9914f105ec138630c063265fb0853dc7.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

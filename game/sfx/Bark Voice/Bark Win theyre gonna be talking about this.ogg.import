@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dnj3dcd2lth8j"
+path="res://.godot/imported/Bark Win theyre gonna be talking about this.ogg-604afe07ef81a903225c5ac6dad35c3e.oggvorbisstr"
+
+[deps]
+
+source_file="res://game/sfx/Bark Voice/Bark Win theyre gonna be talking about this.ogg"
+dest_files=["res://.godot/imported/Bark Win theyre gonna be talking about this.ogg-604afe07ef81a903225c5ac6dad35c3e.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

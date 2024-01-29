@@ -1,18 +1,35 @@
-[gd_scene load_steps=19 format=3 uid="uid://dbyk28qnxnodo"]
+[gd_scene load_steps=41 format=3 uid="uid://dbyk28qnxnodo"]
 
 [ext_resource type="Script" path="res://game/player/player.gd" id="1_b120n"]
 [ext_resource type="Texture2D" uid="uid://drh18mmid77ly" path="res://game/player/skin/RabbitDamaged.png" id="2_tkbhe"]
 [ext_resource type="Shader" path="res://game/player/player.gdshader" id="2_yeqeg"]
+[ext_resource type="Texture2D" uid="uid://k24c1wqydci1" path="res://game/player/skin/RabbitBow0001.png" id="3_f2qjn"]
 [ext_resource type="Texture2D" uid="uid://c3wls0veb1d87" path="res://game/player/skin/RabbitMove0001.png" id="3_gojal"]
+[ext_resource type="Texture2D" uid="uid://ldmvag87n0uh" path="res://game/player/skin/RabbitBow0002.png" id="4_1f70y"]
 [ext_resource type="Texture2D" uid="uid://b34gr43m7bf2u" path="res://game/player/skin/RabbitMove0002.png" id="4_a7k60"]
 [ext_resource type="Texture2D" uid="uid://bovxgve75x5xg" path="res://game/player/skin/RabbitMove0003.png" id="5_0g1s3"]
+[ext_resource type="Texture2D" uid="uid://bn4ictojtthsd" path="res://game/player/skin/RabbitBow0003.png" id="5_dg3cy"]
 [ext_resource type="Texture2D" uid="uid://dyyn42drwbjgp" path="res://game/player/skin/RabbitMove0004.png" id="6_6u2lw"]
+[ext_resource type="Texture2D" uid="uid://cy6ctg5hoa5os" path="res://game/player/skin/RabbitBow0004.png" id="6_xe23p"]
 [ext_resource type="Texture2D" uid="uid://cueqwupxmx2mu" path="res://game/player/skin/RabbitMove0005.png" id="7_3dwef"]
+[ext_resource type="Texture2D" uid="uid://dxjyd8lyx45s4" path="res://game/player/skin/RabbitBow0005.png" id="7_ndmib"]
+[ext_resource type="Texture2D" uid="uid://bk6r402hm0w3j" path="res://game/player/skin/RabbitBow0006.png" id="8_kvryg"]
 [ext_resource type="Texture2D" uid="uid://coi8mrnapktcl" path="res://game/player/skin/RabbitMove0006.png" id="8_ojtmq"]
 [ext_resource type="Texture2D" uid="uid://c57vyefrnop7f" path="res://game/player/skin/RabbitMove0007.png" id="9_h1bgo"]
+[ext_resource type="Texture2D" uid="uid://cagbsj0p7dauw" path="res://game/player/skin/RabbitBow0007.png" id="9_sl8o8"]
 [ext_resource type="Texture2D" uid="uid://wsmrobsrtp3y" path="res://game/player/skin/RabbitMove0008.png" id="10_b6rwg"]
+[ext_resource type="Texture2D" uid="uid://dqthfiqgxqoxb" path="res://game/player/skin/RabbitBow0008.png" id="10_kaeki"]
 [ext_resource type="Texture2D" uid="uid://cgiwj1gie7uge" path="res://game/hazard/projectile/ball/BulletBallOutline.png" id="12_8o4r8"]
+[ext_resource type="Texture2D" uid="uid://ci63c62iblh6e" path="res://game/player/skin/RabbitDead0001.png" id="12_l567d"]
+[ext_resource type="Texture2D" uid="uid://dsko0e020oea4" path="res://game/player/skin/RabbitDead0002.png" id="13_omykm"]
 [ext_resource type="Script" path="res://game/player/hitbox_visual.gd" id="13_s5qw4"]
+[ext_resource type="Texture2D" uid="uid://cbyybpfcgqnen" path="res://game/player/skin/RabbitDead0003.png" id="14_hc2rg"]
+[ext_resource type="Texture2D" uid="uid://c6ax45mmh74ky" path="res://game/player/skin/RabbitAngel0001.png" id="25_pbm0i"]
+[ext_resource type="Texture2D" uid="uid://b6k4hpuf7dvvq" path="res://game/player/skin/RabbitAngel0002.png" id="26_p76kt"]
+[ext_resource type="Texture2D" uid="uid://4q0x76n2rpea" path="res://game/player/skin/RabbitAngel0003.png" id="27_cmcl1"]
+[ext_resource type="Texture2D" uid="uid://ii7hb2vnhi1v" path="res://game/player/skin/RabbitAngel0004.png" id="28_yc44c"]
+[ext_resource type="AudioStream" uid="uid://ftqh8ukrpewp" path="res://game/sfx/Rabbit_Hurt.ogg" id="29_e1m45"]
+[ext_resource type="Texture2D" uid="uid://dt264amdy1nay" path="res://game/ui/spotlight/Spotlight.png" id="30_70d44"]
 
 [sub_resource type="Gradient" id="Gradient_tx5kt"]
 interpolation_color_space = 2
@@ -30,12 +47,55 @@ shader_parameter/gradient_map = SubResource("GradientTexture1D_qf1oi")
 [sub_resource type="SpriteFrames" id="SpriteFrames_428ut"]
 animations = [{
 "frames": [{
+"duration": 2.0,
+"texture": ExtResource("3_f2qjn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_1f70y")
+}, {
+"duration": 2.0,
+"texture": ExtResource("5_dg3cy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_xe23p")
+}, {
+"duration": 2.0,
+"texture": ExtResource("7_ndmib")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_kvryg")
+}, {
+"duration": 2.0,
+"texture": ExtResource("9_sl8o8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_kaeki")
+}],
+"loop": true,
+"name": &"bow",
+"speed": 10.0
+}, {
+"frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_tkbhe")
 }],
 "loop": false,
 "name": &"damaged",
 "speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_l567d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_omykm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_hc2rg")
+}],
+"loop": false,
+"name": &"die",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -70,6 +130,162 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_ybpuk"]
 radius = 12.0416
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_vny77"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("25_pbm0i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_p76kt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_cmcl1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_yc44c")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_fix58"]
+resource_name = "die"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Angel:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Angel:modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.8, 2.3),
+"transitions": PackedFloat32Array(1, 2),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.454902)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Angel:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.8, 3),
+"transitions": PackedFloat32Array(0.75, 1),
+"update": 0,
+"values": [Vector2(0, -23), Vector2(0, -100)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Graphics:animation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.7),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"die"]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Graphics:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.7, 0.9, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_wgdle"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Angel:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Angel:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Angel:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -23)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Graphics:animation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"die"]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Graphics:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1t3yc"]
+_data = {
+"RESET": SubResource("Animation_wgdle"),
+"die": SubResource("Animation_fix58")
+}
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ln440"]
+blend_mode = 1
+
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 6
 motion_mode = 1
@@ -80,10 +296,11 @@ focus_speed = 100.0
 [node name="Graphics" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_7fagh")
 sprite_frames = SubResource("SpriteFrames_428ut")
-animation = &"run"
+animation = &"die"
 autoplay = "run"
 
 [node name="HitboxVisual" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(1, 1, 1, 0.823529)
 self_modulate = Color(0.984314, 0.933333, 0.290196, 1)
 position = Vector2(-1.19209e-07, 12)
@@ -99,7 +316,31 @@ scale = Vector2(0.699355, 0.699355)
 texture = ExtResource("12_8o4r8")
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, 12)
 shape = SubResource("CircleShape2D_ybpuk")
 
+[node name="Angel" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(0, -23)
+sprite_frames = SubResource("SpriteFrames_vny77")
+autoplay = "default"
+frame_progress = 0.164857
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_1t3yc")
+}
+
+[node name="HurtSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("29_e1m45")
+
+[node name="Spotlight" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.533333)
+material = SubResource("CanvasItemMaterial_ln440")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("30_70d44")
+
 [connection signal="animation_finished" from="Graphics" to="." method="_on_graphics_animation_finished"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

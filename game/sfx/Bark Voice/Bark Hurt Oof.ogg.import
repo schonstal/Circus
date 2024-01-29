@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cjb5swjkvf0y3"
+path="res://.godot/imported/Bark Hurt Oof.ogg-ac798e356896c6b5dffd6bbc541526ff.oggvorbisstr"
+
+[deps]
+
+source_file="res://game/sfx/Bark Voice/Bark Hurt Oof.ogg"
+dest_files=["res://.godot/imported/Bark Hurt Oof.ogg-ac798e356896c6b5dffd6bbc541526ff.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

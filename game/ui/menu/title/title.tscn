@@ -1,9 +1,17 @@
-[gd_scene load_steps=12 format=3 uid="uid://devalm8aolfaj"]
+[gd_scene load_steps=16 format=3 uid="uid://devalm8aolfaj"]
 
 [ext_resource type="Texture2D" uid="uid://bj5acs0vx43gn" path="res://game/ui/menu/title/Logo0001.png" id="1_jrd8n"]
 [ext_resource type="Script" path="res://game/ui/menu/title/title.gd" id="1_js72d"]
+[ext_resource type="Texture2D" uid="uid://dt264amdy1nay" path="res://game/ui/spotlight/Spotlight.png" id="2_7xgc1"]
 [ext_resource type="Texture2D" uid="uid://o5tx5ahfyrv5" path="res://game/ui/menu/title/Logo0002.png" id="2_pwiuc"]
+[ext_resource type="Script" path="res://game/ui/spotlight/spotlight.gd" id="3_axjvj"]
 [ext_resource type="Shader" path="res://game/ui/menu/victory/victory_text.gdshader" id="3_pomp7"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ycwjf"]
+blend_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_4p4fl"]
+blend_mode = 1
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ia1ng"]
 animations = [{
@@ -93,6 +101,18 @@ tracks/3/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Spotlights:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_ofsxt"]
 length = 0.001
@@ -144,6 +164,18 @@ tracks/3/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Spotlights:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hpele"]
 _data = {
@@ -159,6 +191,24 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_js72d")
+
+[node name="Spotlights" type="Node2D" parent="."]
+
+[node name="One" type="Sprite2D" parent="Spotlights"]
+material = SubResource("CanvasItemMaterial_ycwjf")
+position = Vector2(739.688, 402.574)
+texture = ExtResource("2_7xgc1")
+script = ExtResource("3_axjvj")
+frequency = Vector2(0.5, 0.25)
+radius = Vector2(300, 150)
+
+[node name="Two" type="Sprite2D" parent="Spotlights"]
+material = SubResource("CanvasItemMaterial_4p4fl")
+position = Vector2(1180.31, 438.188)
+texture = ExtResource("2_7xgc1")
+script = ExtResource("3_axjvj")
+frequency = Vector2(0.5, -0.5)
+radius = Vector2(-300, -150)
 
 [node name="Logo" type="Node2D" parent="."]
 position = Vector2(960, 540)

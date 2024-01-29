@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b5ss7httpqe5b"
+path="res://.godot/imported/Bark Hurt thats gonna hurt.ogg-99c3b6f5768d73849d13739d55300b59.oggvorbisstr"
+
+[deps]
+
+source_file="res://game/sfx/Bark Voice/Bark Hurt thats gonna hurt.ogg"
+dest_files=["res://.godot/imported/Bark Hurt thats gonna hurt.ogg-99c3b6f5768d73849d13739d55300b59.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

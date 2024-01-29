@@ -1,10 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://dtjek1c8q01tl"]
+[gd_scene load_steps=6 format=3 uid="uid://dtjek1c8q01tl"]
 
 [ext_resource type="Script" path="res://game/autoload/conductor/conductor.gd" id="1_leudk"]
 [ext_resource type="AudioStream" uid="uid://5yeihao8rusi" path="res://game/music/Circus_Hyperpop_OGG_1.24_4.11.ogg" id="2_f2rky"]
+[ext_resource type="AudioStream" uid="uid://ctvnu1g4w1oir" path="res://game/music/Circus_LOSS_NEW_1.26_4.07.ogg" id="3_ce42r"]
+[ext_resource type="AudioStream" uid="uid://qbmvspp78juq" path="res://game/music/Circus_Opening_Music_1.25_8.22.ogg" id="4_n835n"]
+[ext_resource type="AudioStream" uid="uid://xxkj15vderwp" path="res://game/music/Circus_WIN_NEW_1.26_4.09.ogg" id="5_v2yuc"]
 
 [node name="Conductor" type="Node"]
 script = ExtResource("1_leudk")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_f2rky")
+
+[node name="DeathMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ce42r")
+
+[node name="TitleMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_n835n")
+volume_db = -10.0
+
+[node name="VictoryMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_v2yuc")

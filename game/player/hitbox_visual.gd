@@ -5,7 +5,6 @@ extends Sprite2D
 
 func _ready() -> void:
   Conductor.sixteenth.connect(_on_sixteenth)
-  Conductor.play_music()
 
 func _on_sixteenth(beat:int) -> void:
   if beat % 2 == 0:

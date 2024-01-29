@@ -9,3 +9,4 @@ func _process(delta: float) -> void:
     TransitionService.transition_out()
     active = false
     animation_player.play("start")
+    GameService.start()

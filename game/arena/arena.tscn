@@ -1,0 +1,72 @@
+[gd_scene load_steps=12 format=3 uid="uid://cyvh35w60g4cv"]
+
+[ext_resource type="Script" path="res://game/arena/arena.gd" id="1_au2hu"]
+[ext_resource type="Script" path="res://game/arena/circle.gd" id="1_mv3ce"]
+[ext_resource type="Shader" path="res://game/arena/ring.gdshader" id="2_rbnyj"]
+[ext_resource type="PackedScene" uid="uid://dbyk28qnxnodo" path="res://game/player/player.tscn" id="3_4eg70"]
+[ext_resource type="PackedScene" uid="uid://csx0qmm2d4avv" path="res://game/hazard/ring_leader/ring_leader_hand.tscn" id="4_jimho"]
+[ext_resource type="Script" path="res://game/scenes/main/sixteenth_spawner.gd" id="5_j05ls"]
+[ext_resource type="PackedScene" uid="uid://dn8hexhmsml1l" path="res://game/hazard/projectile/card/card_blue.tscn" id="6_5fm5c"]
+[ext_resource type="PackedScene" uid="uid://cftthli3rj0pr" path="res://game/hazard/projectile/card/card.tscn" id="7_b7b8v"]
+[ext_resource type="PackedScene" uid="uid://2lxlvaam2a67" path="res://game/hazard/ring_leader/ring_leader_head.tscn" id="8_8nspa"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kpp60"]
+shader = ExtResource("2_rbnyj")
+shader_parameter/border_color = Color(0.992157, 0.956863, 0.521569, 1)
+shader_parameter/inner_color = Color(0.0352941, 0.0117647, 0.109804, 0.858824)
+shader_parameter/outline_color = Color(0, 0, 0, 1)
+shader_parameter/outline_thickness = 0.011
+shader_parameter/radius = 0.81
+shader_parameter/thickness = 0.035
+shader_parameter/antialias = 0.003
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_oyprf"]
+
+[node name="Arena" type="Node2D"]
+script = ExtResource("1_au2hu")
+
+[node name="Circle" type="Node2D" parent="."]
+script = ExtResource("1_mv3ce")
+
+[node name="TextureRect" type="TextureRect" parent="Circle"]
+material = SubResource("ShaderMaterial_kpp60")
+offset_left = 420.0
+offset_right = 1500.0
+offset_bottom = 1080.0
+texture = SubResource("PlaceholderTexture2D_oyprf")
+
+[node name="Player" parent="." instance=ExtResource("3_4eg70")]
+position = Vector2(847, 581)
+speed = 300.0
+
+[node name="RightHand" parent="." instance=ExtResource("4_jimho")]
+position = Vector2(1627, 537)
+flip = true
+speed = 1.2
+radius = 10.0
+
+[node name="SixteenthSpawner2" type="Node2D" parent="RightHand"]
+script = ExtResource("5_j05ls")
+projectile = ExtResource("6_5fm5c")
+invert = true
+
+[node name="LeftHand" parent="." instance=ExtResource("4_jimho")]
+position = Vector2(301, 535)
+speed = 1.2
+radius = 10.0
+
+[node name="SixteenthSpawner" type="Node2D" parent="LeftHand"]
+script = ExtResource("5_j05ls")
+projectile = ExtResource("7_b7b8v")
+
+[node name="Head" parent="." instance=ExtResource("8_8nspa")]
+position = Vector2(957, 159)
+
+[node name="Projectiles" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Explosions" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(960, 540)

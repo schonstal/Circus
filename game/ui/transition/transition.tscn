@@ -324,7 +324,7 @@ color = Color(0, 0, 0, 0.501961)
 
 [node name="One" type="Sprite2D" parent="Spotlights"]
 material = SubResource("CanvasItemMaterial_tte36")
-position = Vector2(842.865, 393.007)
+position = Vector2(670.177, 448.651)
 texture = ExtResource("2_vxeaw")
 script = ExtResource("3_t1pe4")
 frequency = Vector2(0.5, 0.25)
@@ -332,7 +332,7 @@ radius = Vector2(300, 150)
 
 [node name="Two" type="Sprite2D" parent="Spotlights"]
 material = SubResource("CanvasItemMaterial_ngr38")
-position = Vector2(1077.14, 401.906)
+position = Vector2(1249.82, 578.739)
 texture = ExtResource("2_vxeaw")
 script = ExtResource("3_t1pe4")
 frequency = Vector2(0.5, -0.5)

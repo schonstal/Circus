@@ -1,15 +1,7 @@
-[gd_scene load_steps=24 format=3 uid="uid://dy3wyn6ncf1cw"]
+[gd_scene load_steps=14 format=3 uid="uid://dy3wyn6ncf1cw"]
 
 [ext_resource type="PackedScene" uid="uid://cywiykw7n1cyf" path="res://game/background/background.tscn" id="1_aeadd"]
 [ext_resource type="Script" path="res://game/game.gd" id="1_scfe5"]
-[ext_resource type="Shader" path="res://game/arena/ring.gdshader" id="2_tn58u"]
-[ext_resource type="Script" path="res://game/arena/circle.gd" id="3_p5onr"]
-[ext_resource type="PackedScene" uid="uid://dbyk28qnxnodo" path="res://game/player/player.tscn" id="4_b5g7f"]
-[ext_resource type="PackedScene" uid="uid://csx0qmm2d4avv" path="res://game/hazard/ring_leader/ring_leader_hand.tscn" id="7_kd82m"]
-[ext_resource type="Script" path="res://game/scenes/main/sixteenth_spawner.gd" id="7_n8hg1"]
-[ext_resource type="PackedScene" uid="uid://dn8hexhmsml1l" path="res://game/hazard/projectile/card/card_blue.tscn" id="8_11pug"]
-[ext_resource type="PackedScene" uid="uid://2lxlvaam2a67" path="res://game/hazard/ring_leader/ring_leader_head.tscn" id="8_fxrrh"]
-[ext_resource type="PackedScene" uid="uid://cftthli3rj0pr" path="res://game/hazard/projectile/card/card.tscn" id="10_f3w1p"]
 [ext_resource type="Texture2D" uid="uid://bitnx511w4o4p" path="res://game/ui/hud/health/ColoredHealthFrame.png" id="11_rbumu"]
 [ext_resource type="Texture2D" uid="uid://dxn6jwambo3kp" path="res://game/ui/hud/health/ColoredHealthBar.png" id="12_gtbxy"]
 [ext_resource type="Script" path="res://game/ui/hud/health/health.gd" id="13_fmo6j"]
@@ -22,18 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://dvc0fsul85qtr" path="res://game/ui/menu/game_over/game_over.tscn" id="19_wsxqy"]
 [ext_resource type="PackedScene" uid="uid://c8h7ts5moom87" path="res://game/ui/menu/victory/victory.tscn" id="20_dxcpb"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_kpp60"]
-shader = ExtResource("2_tn58u")
-shader_parameter/border_color = Color(0.992157, 0.956863, 0.521569, 1)
-shader_parameter/inner_color = Color(0.0352941, 0.0117647, 0.109804, 0.858824)
-shader_parameter/outline_color = Color(0, 0, 0, 1)
-shader_parameter/outline_thickness = 0.011
-shader_parameter/radius = 0.81
-shader_parameter/thickness = 0.035
-shader_parameter/antialias = 0.003
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_oyprf"]
-
 [node name="Main" type="Node2D"]
 script = ExtResource("1_scfe5")
 
@@ -43,52 +23,6 @@ layer = -1
 [node name="Background" parent="CanvasLayer" instance=ExtResource("1_aeadd")]
 
 [node name="World" type="Node2D" parent="."]
-
-[node name="Circle" type="Node2D" parent="World"]
-script = ExtResource("3_p5onr")
-
-[node name="TextureRect" type="TextureRect" parent="World/Circle"]
-material = SubResource("ShaderMaterial_kpp60")
-offset_left = 420.0
-offset_right = 1500.0
-offset_bottom = 1080.0
-texture = SubResource("PlaceholderTexture2D_oyprf")
-
-[node name="Player" parent="World" instance=ExtResource("4_b5g7f")]
-position = Vector2(847, 581)
-speed = 300.0
-
-[node name="RightHand" parent="World" instance=ExtResource("7_kd82m")]
-position = Vector2(1627, 537)
-flip = true
-speed = 1.2
-radius = 10.0
-
-[node name="SixteenthSpawner2" type="Node2D" parent="World/RightHand"]
-script = ExtResource("7_n8hg1")
-projectile = ExtResource("8_11pug")
-invert = true
-
-[node name="LeftHand" parent="World" instance=ExtResource("7_kd82m")]
-position = Vector2(301, 535)
-speed = 1.2
-radius = 10.0
-
-[node name="SixteenthSpawner" type="Node2D" parent="World/LeftHand"]
-script = ExtResource("7_n8hg1")
-projectile = ExtResource("10_f3w1p")
-
-[node name="Head" parent="World" instance=ExtResource("8_fxrrh")]
-position = Vector2(957, 159)
-
-[node name="Projectiles" type="Node2D" parent="World"]
-unique_name_in_owner = true
-
-[node name="Explosions" type="Node2D" parent="World"]
-unique_name_in_owner = true
-
-[node name="Camera2D" type="Camera2D" parent="World"]
-position = Vector2(960, 540)
 
 [node name="HUD" type="CanvasLayer" parent="."]
 

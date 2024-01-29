@@ -18,6 +18,9 @@ func _process(delta: float) -> void:
   else:
     hitbox_visual.visible = false
     velocity = direction * speed
+  
+  if direction.length_squared() > 0:
+    graphics.flip_h = direction.x > 0
 
 func _physics_process(delta: float) -> void:
   move_and_slide()

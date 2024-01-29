@@ -94,7 +94,7 @@ color_dark = Color(0.992157, 0.964706, 0.584314, 1)
 color_light = Color(0.72549, 1, 0.368627, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="HitboxVisual"]
-modulate = Color(0.0705882, 0.0196078, 0.231373, 1)
+modulate = Color(0.109804, 0.0392157, 0.235294, 1)
 scale = Vector2(0.699355, 0.699355)
 texture = ExtResource("12_8o4r8")
 

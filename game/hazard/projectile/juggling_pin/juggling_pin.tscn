@@ -1,14 +1,17 @@
-[gd_scene load_steps=8 format=3 uid="uid://drla6rvs1wwjr"]
+[gd_scene load_steps=12 format=3 uid="uid://drla6rvs1wwjr"]
 
 [ext_resource type="Script" path="res://game/hazard/projectile/juggling_pin/juggling_pin.gd" id="1_wg5qs"]
 [ext_resource type="Texture2D" uid="uid://dre3jtydb2yd7" path="res://game/hazard/projectile/juggling_pin/BulletJugglingPinOutline.png" id="2_p6kwb"]
 [ext_resource type="Shader" path="res://game/hazard/projectile/juggling_pin/juggling_pin.gdshader" id="3_kwe6c"]
+[ext_resource type="Script" path="res://game/hazard/projectile/outline.gd" id="3_neodi"]
 [ext_resource type="Texture2D" uid="uid://cflwevdax32ln" path="res://game/hazard/projectile/juggling_pin/BulletJugglingPin.png" id="4_48h2u"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4720o"]
 
 [sub_resource type="Gradient" id="Gradient_0frha"]
 interpolation_color_space = 2
 offsets = PackedFloat32Array(0, 0.512438, 1)
-colors = PackedColorArray(0.159451, 0.40287, 0.748399, 1, 0.846088, 0.615684, 0.33191, 1, 1, 1, 1, 1)
+colors = PackedColorArray(0.443137, 0.317647, 0.819608, 1, 0.792157, 0.537255, 0.176471, 1, 0.992157, 0.964706, 0.584314, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_3of0k"]
 gradient = SubResource("Gradient_0frha")
@@ -17,12 +20,31 @@ gradient = SubResource("Gradient_0frha")
 shader = ExtResource("3_kwe6c")
 shader_parameter/gradient_map = SubResource("GradientTexture1D_3of0k")
 
-[node name="JugglingPin" type="Node2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_avxlg"]
+height = 102.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lbj8y"]
+radius = 18.0
+height = 54.0
+
+[node name="Projectile" type="Area2D"]
+material = SubResource("ShaderMaterial_4720o")
+collision_layer = 2
 script = ExtResource("1_wg5qs")
 
 [node name="Outline" type="Sprite2D" parent="."]
+modulate = Color(0.992157, 0.345098, 0.321569, 1)
 texture = ExtResource("2_p6kwb")
+script = ExtResource("3_neodi")
+other_color = Color(0.984314, 0.933333, 0.290196, 1)
 
 [node name="Graphic" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_3p1l3")
 texture = ExtResource("4_48h2u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_avxlg")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(0, 20)
+shape = SubResource("CapsuleShape2D_lbj8y")

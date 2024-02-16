@@ -36,6 +36,10 @@ var length:float :
 var progress:float :
   get:
     return max(self.elapsed / self.length, 0)
+    
+var measure:int :
+  get:
+    return beats[4] / 4
 
 var time_begin := 0.0
 var time_delay := 0.0
@@ -56,7 +60,7 @@ func play_music() -> void:
   time_delay = AudioServer.get_time_to_next_mix() + AudioServer.get_output_latency()
   audio_stream_player.play()
   
-  beats = { 4: 0, 8: 0, 12: 0, 16: 0, 24: 0, 32: 0 }
+  beats = { 4: -1, 8: -1, 12: -1, 16: -1, 24: -1, 32: -1 }
   
 func stop_music() -> void:
   audio_stream_player.stop()

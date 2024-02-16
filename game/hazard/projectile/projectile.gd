@@ -3,7 +3,7 @@ extends Area2D
 
 @export var index:int = 0
 
-var velocity:Vector2
+@export var velocity:Vector2
 
 func _ready() -> void:
   body_entered.connect(_on_body_entered)

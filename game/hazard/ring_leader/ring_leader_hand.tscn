@@ -8,4 +8,4 @@ script = ExtResource("1_8sg1p")
 
 [node name="Hand" type="Sprite2D" parent="."]
 texture = ExtResource("2_woyc3")
-offset = Vector2(19.2059, -5.57982)
+offset = Vector2(-16.8866, 10.7165)

@@ -1,19 +1,33 @@
-[gd_scene load_steps=4 format=3 uid="uid://2lxlvaam2a67"]
+[gd_scene load_steps=7 format=3 uid="uid://2lxlvaam2a67"]
 
+[ext_resource type="Script" path="res://game/hazard/ring_leader/ring_leader_head.gd" id="1_f46dh"]
 [ext_resource type="Texture2D" uid="uid://2womcr1ftum4" path="res://game/hazard/ring_leader/ColoredRingLeaderHead.png" id="1_vdm0y"]
 [ext_resource type="Texture2D" uid="uid://cg3ggqg6vm3l2" path="res://game/hazard/ring_leader/ColoredRingLeaderMouth.png" id="2_dyuob"]
 [ext_resource type="Texture2D" uid="uid://8kev7aw1dhgu" path="res://game/hazard/ring_leader/ColoredRingLeaderFace.png" id="3_5jgse"]
+[ext_resource type="Script" path="res://util/state_machine/state_machine.gd" id="5_2otfh"]
+[ext_resource type="Script" path="res://game/hazard/ring_leader/states/sway.gd" id="6_w1apc"]
 
 [node name="RingLeaderHead" type="Node2D"]
+script = ExtResource("1_f46dh")
 
-[node name="Head" type="Sprite2D" parent="."]
+[node name="Graphics" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Head" type="Sprite2D" parent="Graphics"]
 texture = ExtResource("1_vdm0y")
 
-[node name="Mouf" type="Sprite2D" parent="."]
+[node name="Mouf" type="Sprite2D" parent="Graphics"]
 position = Vector2(0, 165)
 scale = Vector2(0.999478, 1)
 texture = ExtResource("2_dyuob")
 
-[node name="Face" type="Sprite2D" parent="."]
+[node name="Face" type="Sprite2D" parent="Graphics"]
 position = Vector2(0, 112)
 texture = ExtResource("3_5jgse")
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("5_2otfh")
+initial_state = NodePath("Sway")
+
+[node name="Sway" type="Node" parent="StateMachine"]
+script = ExtResource("6_w1apc")

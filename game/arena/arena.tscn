@@ -1,14 +1,20 @@
-[gd_scene load_steps=12 format=3 uid="uid://cyvh35w60g4cv"]
+[gd_scene load_steps=24 format=3 uid="uid://cyvh35w60g4cv"]
 
 [ext_resource type="Script" path="res://game/arena/arena.gd" id="1_au2hu"]
 [ext_resource type="Script" path="res://game/arena/circle.gd" id="1_mv3ce"]
 [ext_resource type="Shader" path="res://game/arena/ring.gdshader" id="2_rbnyj"]
 [ext_resource type="PackedScene" uid="uid://dbyk28qnxnodo" path="res://game/player/player.tscn" id="3_4eg70"]
 [ext_resource type="PackedScene" uid="uid://csx0qmm2d4avv" path="res://game/hazard/ring_leader/ring_leader_hand.tscn" id="4_jimho"]
-[ext_resource type="Script" path="res://game/scenes/main/sixteenth_spawner.gd" id="5_j05ls"]
-[ext_resource type="PackedScene" uid="uid://dn8hexhmsml1l" path="res://game/hazard/projectile/card/card_blue.tscn" id="6_5fm5c"]
-[ext_resource type="PackedScene" uid="uid://cftthli3rj0pr" path="res://game/hazard/projectile/card/card.tscn" id="7_b7b8v"]
 [ext_resource type="PackedScene" uid="uid://2lxlvaam2a67" path="res://game/hazard/ring_leader/ring_leader_head.tscn" id="8_8nspa"]
+[ext_resource type="Script" path="res://game/patterns/0.gd" id="8_51s0v"]
+[ext_resource type="Script" path="res://game/patterns/6.gd" id="9_un384"]
+[ext_resource type="Script" path="res://game/patterns/pattern_manager.gd" id="10_3pci8"]
+[ext_resource type="Script" path="res://game/patterns/16.gd" id="10_yvrq3"]
+[ext_resource type="Script" path="res://game/patterns/16/pin_spawner.gd" id="11_lt48i"]
+[ext_resource type="Script" path="res://game/patterns/32.gd" id="12_xkhjn"]
+[ext_resource type="Script" path="res://game/patterns/48.gd" id="13_u0103"]
+[ext_resource type="Script" path="res://game/patterns/55.gd" id="14_2tinu"]
+[ext_resource type="Script" path="res://game/patterns/56.gd" id="15_f12x2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kpp60"]
 shader = ExtResource("2_rbnyj")
@@ -21,6 +27,79 @@ shader_parameter/thickness = 0.035
 shader_parameter/antialias = 0.003
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_oyprf"]
+
+[sub_resource type="Animation" id="Animation_iscdj"]
+resource_name = "zoom"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../Camera2D:zoom")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(0.5, 0.5), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_xfq81"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../Camera2D:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.5, 0.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oqkvu"]
+_data = {
+"RESET": SubResource("Animation_xfq81"),
+"zoom": SubResource("Animation_iscdj")
+}
+
+[sub_resource type="Animation" id="Animation_dlqlv"]
+resource_name = "appear"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../Head:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_l32n3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../Head:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0tjrc"]
+_data = {
+"RESET": SubResource("Animation_l32n3"),
+"appear": SubResource("Animation_dlqlv")
+}
 
 [node name="Arena" type="Node2D"]
 script = ExtResource("1_au2hu")
@@ -36,30 +115,25 @@ offset_bottom = 1080.0
 texture = SubResource("PlaceholderTexture2D_oyprf")
 
 [node name="Player" parent="." instance=ExtResource("3_4eg70")]
-position = Vector2(847, 581)
-speed = 300.0
+position = Vector2(960, 540)
 
 [node name="RightHand" parent="." instance=ExtResource("4_jimho")]
-position = Vector2(1627, 537)
+visible = false
+position = Vector2(1627, 902)
+rotation = 1.0472
 flip = true
 speed = 1.2
 radius = 10.0
 
-[node name="SixteenthSpawner2" type="Node2D" parent="RightHand"]
-script = ExtResource("5_j05ls")
-projectile = ExtResource("6_5fm5c")
-invert = true
-
 [node name="LeftHand" parent="." instance=ExtResource("4_jimho")]
-position = Vector2(301, 535)
+visible = false
+position = Vector2(301, 900)
+rotation = -1.0472
 speed = 1.2
 radius = 10.0
 
-[node name="SixteenthSpawner" type="Node2D" parent="LeftHand"]
-script = ExtResource("5_j05ls")
-projectile = ExtResource("7_b7b8v")
-
 [node name="Head" parent="." instance=ExtResource("8_8nspa")]
+modulate = Color(1, 1, 1, 0)
 position = Vector2(957, 159)
 
 [node name="Projectiles" type="Node2D" parent="."]
@@ -70,3 +144,50 @@ unique_name_in_owner = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(960, 540)
+zoom = Vector2(0.5, 0.5)
+
+[node name="PatternManager" type="Node" parent="."]
+script = ExtResource("10_3pci8")
+
+[node name="0" type="Node" parent="PatternManager"]
+script = ExtResource("8_51s0v")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PatternManager/0"]
+libraries = {
+"": SubResource("AnimationLibrary_oqkvu")
+}
+
+[node name="6" type="Node" parent="PatternManager"]
+script = ExtResource("9_un384")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PatternManager/6"]
+libraries = {
+"": SubResource("AnimationLibrary_0tjrc")
+}
+
+[node name="16" type="Node" parent="PatternManager"]
+script = ExtResource("10_yvrq3")
+
+[node name="PinSpawner" type="Node" parent="PatternManager/16"]
+script = ExtResource("11_lt48i")
+velocity = Vector2(6, -12)
+acceleration = Vector2(0, 6)
+
+[node name="PinSpawner2" type="Node" parent="PatternManager/16"]
+script = ExtResource("11_lt48i")
+spawn_position = Vector2(1440, 1200)
+velocity = Vector2(-6, -12)
+acceleration = Vector2(0, 6)
+spawn_on_beat = 1
+
+[node name="32" type="Node" parent="PatternManager"]
+script = ExtResource("12_xkhjn")
+
+[node name="48" type="Node" parent="PatternManager"]
+script = ExtResource("13_u0103")
+
+[node name="55" type="Node" parent="PatternManager"]
+script = ExtResource("14_2tinu")
+
+[node name="56" type="Node" parent="PatternManager"]
+script = ExtResource("15_f12x2")

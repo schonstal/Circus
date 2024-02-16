@@ -14,3 +14,6 @@ enum Suit {
 func _ready() -> void:
   card.frame = suit
   super._ready()
+  
+func _process(delta: float) -> void:
+  rotation = velocity.angle() + PI / 2

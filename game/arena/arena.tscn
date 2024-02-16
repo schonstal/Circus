@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cyvh35w60g4cv"]
+[gd_scene load_steps=23 format=3 uid="uid://cyvh35w60g4cv"]
 
 [ext_resource type="Script" path="res://game/arena/arena.gd" id="1_au2hu"]
 [ext_resource type="Script" path="res://game/arena/circle.gd" id="1_mv3ce"]
@@ -9,12 +9,11 @@
 [ext_resource type="Script" path="res://game/patterns/0.gd" id="8_51s0v"]
 [ext_resource type="Script" path="res://game/patterns/6.gd" id="9_un384"]
 [ext_resource type="Script" path="res://game/patterns/pattern_manager.gd" id="10_3pci8"]
+[ext_resource type="Script" path="res://game/patterns/8.gd" id="10_d02xb"]
 [ext_resource type="Script" path="res://game/patterns/16.gd" id="10_yvrq3"]
 [ext_resource type="Script" path="res://game/patterns/16/pin_spawner.gd" id="11_lt48i"]
 [ext_resource type="Script" path="res://game/patterns/32.gd" id="12_xkhjn"]
-[ext_resource type="Script" path="res://game/patterns/48.gd" id="13_u0103"]
 [ext_resource type="Script" path="res://game/patterns/55.gd" id="14_2tinu"]
-[ext_resource type="Script" path="res://game/patterns/56.gd" id="15_f12x2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kpp60"]
 shader = ExtResource("2_rbnyj")
@@ -165,6 +164,9 @@ libraries = {
 "": SubResource("AnimationLibrary_0tjrc")
 }
 
+[node name="8" type="Node" parent="PatternManager"]
+script = ExtResource("10_d02xb")
+
 [node name="16" type="Node" parent="PatternManager"]
 script = ExtResource("10_yvrq3")
 
@@ -183,11 +185,5 @@ spawn_on_beat = 1
 [node name="32" type="Node" parent="PatternManager"]
 script = ExtResource("12_xkhjn")
 
-[node name="48" type="Node" parent="PatternManager"]
-script = ExtResource("13_u0103")
-
 [node name="55" type="Node" parent="PatternManager"]
 script = ExtResource("14_2tinu")
-
-[node name="56" type="Node" parent="PatternManager"]
-script = ExtResource("15_f12x2")

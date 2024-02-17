@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cyvh35w60g4cv"]
+[gd_scene load_steps=27 format=3 uid="uid://cyvh35w60g4cv"]
 
 [ext_resource type="Script" path="res://game/arena/arena.gd" id="1_au2hu"]
 [ext_resource type="Script" path="res://game/arena/circle.gd" id="1_mv3ce"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" path="res://game/patterns/16/pin_spawner.gd" id="11_lt48i"]
 [ext_resource type="Script" path="res://game/patterns/32.gd" id="12_xkhjn"]
 [ext_resource type="Script" path="res://game/patterns/55.gd" id="14_2tinu"]
+[ext_resource type="Script" path="res://game/patterns/80.gd" id="15_hbyql"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kpp60"]
 shader = ExtResource("2_rbnyj")
@@ -66,13 +67,38 @@ _data = {
 
 [sub_resource type="Animation" id="Animation_dlqlv"]
 resource_name = "appear"
+length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath("../../Head:modulate")
-tracks/0/interp = 1
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../RightHand:modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../LeftHand:modulate")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
@@ -93,11 +119,84 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../RightHand:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../LeftHand:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0tjrc"]
 _data = {
 "RESET": SubResource("Animation_l32n3"),
 "appear": SubResource("Animation_dlqlv")
+}
+
+[sub_resource type="Animation" id="Animation_cyltf"]
+resource_name = "disappear"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../Head:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../LeftHand:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../RightHand:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_vpb65"]
+length = 0.001
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ocj37"]
+_data = {
+"RESET": SubResource("Animation_vpb65"),
+"disappear": SubResource("Animation_cyltf")
 }
 
 [node name="Arena" type="Node2D"]
@@ -117,17 +216,15 @@ texture = SubResource("PlaceholderTexture2D_oyprf")
 position = Vector2(960, 540)
 
 [node name="RightHand" parent="." instance=ExtResource("4_jimho")]
-visible = false
-position = Vector2(1627, 902)
-rotation = 1.0472
+modulate = Color(1, 1, 1, 0)
+position = Vector2(1627, 540)
 flip = true
 speed = 1.2
 radius = 10.0
 
 [node name="LeftHand" parent="." instance=ExtResource("4_jimho")]
-visible = false
-position = Vector2(301, 900)
-rotation = -1.0472
+modulate = Color(1, 1, 1, 0)
+position = Vector2(301, 540)
 speed = 1.2
 radius = 10.0
 
@@ -172,6 +269,7 @@ script = ExtResource("10_yvrq3")
 
 [node name="PinSpawner" type="Node" parent="PatternManager/16"]
 script = ExtResource("11_lt48i")
+spawn_position = Vector2(480, 1400)
 velocity = Vector2(6, -12)
 acceleration = Vector2(0, 6)
 
@@ -187,3 +285,11 @@ script = ExtResource("12_xkhjn")
 
 [node name="55" type="Node" parent="PatternManager"]
 script = ExtResource("14_2tinu")
+
+[node name="80" type="Node" parent="PatternManager"]
+script = ExtResource("15_hbyql")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PatternManager/80"]
+libraries = {
+"": SubResource("AnimationLibrary_ocj37")
+}

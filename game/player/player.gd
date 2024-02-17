@@ -13,6 +13,9 @@ extends CharacterBody2D
 var health := 100
 var dead := false
 
+func _ready() -> void:
+  GameService.player = self # no such thing as a private variable in a game jam
+
 func _process(delta: float) -> void:
   if dead:
     velocity = Vector2.ZERO

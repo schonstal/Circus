@@ -3,7 +3,6 @@ extends Node
 @onready var head: Node2D = $"../../Head"
 
 func activate() -> void:
-  return
   Conductor.eighth.connect(_on_eighth)
   
 func _on_eighth(beat:int) -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://drla6rvs1wwjr"]
+[gd_scene load_steps=11 format=3 uid="uid://drla6rvs1wwjr"]
 
 [ext_resource type="Script" path="res://game/hazard/projectile/juggling_pin/juggling_pin.gd" id="1_wg5qs"]
 [ext_resource type="Texture2D" uid="uid://dre3jtydb2yd7" path="res://game/hazard/projectile/juggling_pin/BulletJugglingPinOutline.png" id="2_p6kwb"]
@@ -23,14 +23,13 @@ shader_parameter/gradient_map = SubResource("GradientTexture1D_3of0k")
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_avxlg"]
 height = 102.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lbj8y"]
-radius = 18.0
-height = 54.0
-
 [node name="Projectile" type="Area2D"]
 material = SubResource("ShaderMaterial_4720o")
 collision_layer = 2
 script = ExtResource("1_wg5qs")
+acceleration = null
+index = null
+velocity = null
 
 [node name="Outline" type="Sprite2D" parent="."]
 modulate = Color(0.992157, 0.345098, 0.321569, 1)
@@ -44,7 +43,3 @@ texture = ExtResource("4_48h2u")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_avxlg")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(0, 20)
-shape = SubResource("CapsuleShape2D_lbj8y")

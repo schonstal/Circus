@@ -1,6 +1,7 @@
 extends Node
 
 var game:Game
+var player:Player
 
 signal root_changed(root:Game)
 

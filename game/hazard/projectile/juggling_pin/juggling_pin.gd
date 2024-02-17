@@ -4,9 +4,11 @@ extends Projectile
 
 func _ready() -> void:
   Conductor.quarter.connect(_on_quarter)
+  super._ready()
 
 func _process(delta: float) -> void:
   rotation = PI * Conductor.elapsed / 0.411
+  super._process(delta)
   
 func _physics_process(delta: float) -> void:
   velocity += acceleration * 0.5 * delta
